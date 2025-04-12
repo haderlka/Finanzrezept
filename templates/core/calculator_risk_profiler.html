@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}Risikoprofil-Rechner - Finanzrezept{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4 mb-4">Risikoprofil-Rechner</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p class="lead">Dieser Rechner hilft Ihnen, Ihr persönliches Risikoprofil zu ermitteln. Bitte beantworten Sie die folgenden Fragen ehrlich und nach bestem Wissen.</p>
+            
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                
+                <!-- Step 1: Risk Need -->
+                <div class="mb-4">
+                    <h2 class="h4 mb-3">1. Risikobedarf</h2>
+                    
+                    <div class="mb-3">
+                        <label for="goal_amount" class="form-label">Wie hoch ist Ihr angestrebtes Vermögen am Ende der Anlageperiode?</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="goal_amount" name="goal_amount" required>
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="current_amount" class="form-label">Wie hoch ist Ihr aktuelles Vermögen?</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="current_amount" name="current_amount" required>
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="time_horizon" class="form-label">Wie lange ist Ihr Anlagehorizont in Jahren?</label>
+                        <input type="number" class="form-control" id="time_horizon" name="time_horizon" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="monthly_savings" class="form-label">Wie viel können Sie monatlich sparen?</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="monthly_savings" name="monthly_savings" required>
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Risk-Taking Ability -->
+                <div class="mb-4">
+                    <h2 class="h4 mb-3">2. Risikofähigkeit</h2>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Wie wichtig ist es Ihnen, Ihr Vermögen zu erhalten?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_high" value="high" required>
+                            <label class="form-check-label" for="preservation_high">Sehr wichtig</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_medium" value="medium">
+                            <label class="form-check-label" for="preservation_medium">Mittel</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_low" value="low">
+                            <label class="form-check-label" for="preservation_low">Weniger wichtig</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Wie hoch ist Ihr Einkommen im Verhältnis zu Ihren Ausgaben?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="income_ratio" id="income_high" value="high" required>
+                            <label class="form-check-label" for="income_high">Einkommen deutlich höher als Ausgaben</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="income_ratio" id="income_medium" value="medium">
+                            <label class="form-check-label" for="income_medium">Einkommen und Ausgaben ausgeglichen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="income_ratio" id="income_low" value="low">
+                            <label class="form-check-label" for="income_low">Ausgaben höher als Einkommen</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Behavioral Loss Tolerance -->
+                <div class="mb-4">
+                    <h2 class="h4 mb-3">3. Verhaltensbezogene Risikotoleranz</h2>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Wie würden Sie Ihr Wissen über Finanzmärkte einschätzen?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_high" value="high" required>
+                            <label class="form-check-label" for="knowledge_high">Sehr gut</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_medium" value="medium">
+                            <label class="form-check-label" for="knowledge_medium">Gut</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_low" value="low">
+                            <label class="form-check-label" for="knowledge_low">Gering</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Wie haben Sie in der Vergangenheit auf Marktverluste reagiert?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_hold" value="hold" required>
+                            <label class="form-check-label" for="reaction_hold">Positionen gehalten</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_sell" value="sell">
+                            <label class="form-check-label" for="reaction_sell">Verkauft</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_buy" value="buy">
+                            <label class="form-check-label" for="reaction_buy">Nachgekauft</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Wie schätzen Sie das Risiko des Aktienmarktes ein?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_high" value="high" required>
+                            <label class="form-check-label" for="risk_high">Sehr riskant</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_medium" value="medium">
+                            <label class="form-check-label" for="risk_medium">Mäßig riskant</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_low" value="low">
+                            <label class="form-check-label" for="risk_low">Wenig riskant</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Risikoprofil berechnen</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} 

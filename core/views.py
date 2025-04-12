@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from core.blog import get_blog_posts, get_post_by_slug, get_all_tags
 from calculators.compound_interest.calculator import calculate_compound_interest
+from calculators.risk_profiler.calculator import calculate_risk_profile
 
 # Create your views here.
 
@@ -98,3 +99,9 @@ def search(request):
         'blog_results': blog_results,
         'calculator_results': calculator_results
     })
+
+def risk_profiler(request):
+    if request.method == 'POST':
+        result = calculate_risk_profile(request.POST)
+        return render(request, 'core/calculator_risk_profiler_result.html', result)
+    return render(request, 'core/calculator_risk_profiler.html')

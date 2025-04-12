@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Rechner - Finanzrezept{% endblock %}
+
 {% block content %}
 <div class="container py-5">
     <h1 class="mb-4">
@@ -25,20 +27,19 @@
             </div>
         </div>
         
-        <!-- Weitere Rechner werden hier hinzugefügt -->
+        <!-- Risikoprofil-Rechner -->
         <div class="col-md-6">
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <i class="bi bi-hourglass-split"></i> Weitere Rechner
+                        <i class="bi bi-hourglass-split"></i> Risikoprofil-Rechner
                     </h5>
                     <p class="card-text">
-                        Weitere nützliche Finanzrechner sind in Planung. 
-                        Bleiben Sie gespannt auf neue Funktionen!
+                        Ermitteln Sie Ihr persönliches Risikoprofil für die Geldanlage.
                     </p>
-                    <button class="btn btn-secondary" disabled>
-                        <i class="bi bi-clock"></i> In Kürze verfügbar
-                    </button>
+                    <a href="{% url 'core:risk_profiler' %}" class="btn btn-primary">
+                        <i class="bi bi-arrow-right"></i> Zum Rechner
+                    </a>
                 </div>
             </div>
         </div>

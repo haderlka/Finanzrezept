@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load core_extras %}
+
+{% block title %}Risikoprofil-Ergebnis - Finanzrezept{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-center">Ihr Risikoprofil</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <h4>Risikobedarf</h4>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {% if risk_need == 'high' %}bg-danger{% elif risk_need == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                         role="progressbar" 
+                                         style="width: {% if risk_need == 'high' %}100%{% elif risk_need == 'moderate' %}50%{% else %}25%{% endif %};">
+                                        {{ risk_need|title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <h4>Risikofähigkeit</h4>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {% if risk_ability == 'high' %}bg-danger{% elif risk_ability == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                         role="progressbar" 
+                                         style="width: {% if risk_ability == 'high' %}100%{% elif risk_ability == 'moderate' %}50%{% else %}25%{% endif %};">
+                                        {{ risk_ability|title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <h4>Risikotoleranz</h4>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {% if behavioral_tolerance == 'high' %}bg-danger{% elif behavioral_tolerance == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                         role="progressbar" 
+                                         style="width: {% if behavioral_tolerance == 'high' %}100%{% elif behavioral_tolerance == 'moderate' %}50%{% else %}25%{% endif %};">
+                                        {{ behavioral_tolerance|title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <h4 class="alert-heading">Erforderliche Rendite</h4>
+                        <p>Basierend auf Ihren Zielen und Sparplänen benötigen Sie eine jährliche Rendite von <strong>{{ required_return }}%</strong>.</p>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3>Empfohlene Portfoliostruktur</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Aktienquote: {{ equity_percentage }}%</h4>
+                                    <div class="progress" style="height: 30px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ equity_percentage }}%;">
+                                            Aktien
+                                        </div>
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ 100|sub:equity_percentage }}%;">
+                                            Anleihen
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Risikoprofil: {{ allocation|title }}</h4>
+                                    <p>{{ explanation }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <h4 class="alert-heading">Wichtiger Hinweis</h4>
+                        <p>Diese Analyse dient nur als Orientierungshilfe und ersetzt keine professionelle Anlageberatung. 
+                        Bitte beachten Sie, dass alle Anlagen mit Risiken verbunden sind und vergangene Wertentwicklungen 
+                        keine Garantie für zukünftige Ergebnisse darstellen.</p>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="{% url 'core:risk_profiler' %}" class="btn btn-primary">Neue Analyse starten</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
