@@ -3,6 +3,11 @@ from django.http import Http404
 from core.blog import get_blog_posts, get_post_by_slug, get_all_tags
 from calculators.compound_interest.calculator import calculate_compound_interest
 from calculators.risk_profiler.calculator import calculate_risk_profile
+from django.db.models import Count
+from django.utils import timezone
+from datetime import timedelta
+from .models import PageView, CalculatorUsage
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 
@@ -105,3 +110,36 @@ def risk_profiler(request):
         result = calculate_risk_profile(request.POST)
         return render(request, 'core/calculator_risk_profiler_result.html', result)
     return render(request, 'core/calculator_risk_profiler.html')
+
+@staff_member_required(login_url='admin:login')
+def statistics(request):
+    # Get time ranges
+    today = timezone.now().date()
+    last_week = today - timedelta(days=7)
+    last_month = today - timedelta(days=30)
+
+    # Page view statistics
+    total_views = PageView.objects.count()
+    today_views = PageView.objects.filter(timestamp__date=today).count()
+    weekly_views = PageView.objects.filter(timestamp__date__gte=last_week).count()
+    monthly_views = PageView.objects.filter(timestamp__date__gte=last_month).count()
+
+    # Popular pages
+    popular_pages = PageView.objects.values('url').annotate(
+        count=Count('id')
+    ).order_by('-count')[:10]
+
+    # Calculator usage statistics
+    calculator_stats = CalculatorUsage.objects.values('calculator_name').annotate(
+        count=Count('id')
+    ).order_by('-count')
+
+    context = {
+        'total_views': total_views,
+        'today_views': today_views,
+        'weekly_views': weekly_views,
+        'monthly_views': monthly_views,
+        'popular_pages': popular_pages,
+        'calculator_stats': calculator_stats,
+    }
+    return render(request, 'core/statistics.html', context)

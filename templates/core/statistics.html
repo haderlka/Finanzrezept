@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistiken - Finanzrezept{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Website-Statistiken</h1>
+
+    <!-- Page View Statistics -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0">Seitenaufrufe</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">{{ total_views }}</h3>
+                            <p class="card-text">Gesamt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">{{ today_views }}</h3>
+                            <p class="card-text">Heute</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">{{ weekly_views }}</h3>
+                            <p class="card-text">Diese Woche</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">{{ monthly_views }}</h3>
+                            <p class="card-text">Dieser Monat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Pages -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0">Beliebte Seiten</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>URL</th>
+                            <th>Aufrufe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for page in popular_pages %}
+                        <tr>
+                            <td>{{ page.url }}</td>
+                            <td>{{ page.count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator Usage -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0">Rechner-Nutzung</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Rechner</th>
+                            <th>Nutzungen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stat in calculator_stats %}
+                        <tr>
+                            <td>{{ stat.calculator_name }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
