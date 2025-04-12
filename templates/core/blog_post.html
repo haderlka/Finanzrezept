@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'core:blog_list' %}">Blog</a></li>
+            <li class="breadcrumb-item active">{{ post.title }}</li>
+        </ol>
+    </nav>
+
+    <article class="blog-post">
+        <h1 class="mb-3">{{ post.title }}</h1>
+        
+        <div class="text-muted mb-4">
+            <small>
+                Veröffentlicht am {{ post.date|date:"d.m.Y" }} von {{ post.author }}
+            </small>
+        </div>
+
+        <div class="blog-content">
+            {{ post.content|safe }}
+        </div>
+    </article>
+
+    <div class="mt-5">
+        <a href="{% url 'core:blog_list' %}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i>
+            Zurück zur Übersicht
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .blog-content {
+        max-width: 800px;
+        line-height: 1.8;
+    }
+    
+    .blog-content h1,
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4,
+    .blog-content h5,
+    .blog-content h6 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-content p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .blog-content ul,
+    .blog-content ol {
+        margin-bottom: 1.5rem;
+    }
+</style>
+{% endblock %} 

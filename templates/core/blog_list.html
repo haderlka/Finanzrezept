@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Blog</h1>
+    
+    <div class="row g-4">
+        {% for post in posts %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <small>
+                                {{ post.date|date:"d.m.Y" }} • {{ post.author }}
+                            </small>
+                        </h6>
+                        <p class="card-text">{{ post.description }}</p>
+                        <a href="{% url 'core:blog_post' post.slug %}" class="btn btn-primary">
+                            Weiterlesen
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    Noch keine Blog-Einträge vorhanden.
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
