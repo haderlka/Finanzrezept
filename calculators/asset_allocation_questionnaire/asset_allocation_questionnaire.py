@@ -1,8 +1,29 @@
 from ..generic.constants import EXPECTED_REAL_RATE_OF_EQUITY_RETURN, EXPECTED_REAL_RATE_OF_BONDS_RETURN
 
+class Rating(Enum):
+    NOT_RATED = 0
+    LOW = 1
+    MEDIUM = 2
+    HIGH = 3
+
+
 class Questionnaire:
     def __init__(self):
-        pass
+        self.risk_need = Rating.NOT_RATED
+        self.risk_need_equity_allocation = None
+        self.risk_ability_time_horizon = Rating.NOT_RATED
+        self.risk_ability_liquidity_need = Rating.NOT_RATED
+        self.risk_ability_capacity = Rating.NOT_RATED
+
+    def eval_risk_need(self, equity_allocation):
+        self.risk_need_equity_allocation = equity_allocation
+        if equity_allocation < 30:
+            self.risk_need = Rating.LOW
+        elif equity_allocation <= 70:
+            self.risk_need =  Rating.MEDIUM 
+        else:
+            self.risk_need =  Rating.HIGH
+
 
 #1. section of the questionnaire: "Risikonotwendigkeit"
 def risk_need_questionnaire(current_value, time_horizon_years, monthly_savings, target_value, equity_return=EXPECTED_REAL_RATE_OF_EQUITY_RETURN, bonds_return=EXPECTED_REAL_RATE_OF_BONDS_RETURN):
@@ -22,6 +43,8 @@ def risk_need_questionnaire(current_value, time_horizon_years, monthly_savings, 
         float: The percentage of the portfolio that should be allocated to equity
     """
     # Convert inputs to float
+    qa_data = Questionnaire()
+
     current_value = float(current_value)
     time_horizon_years = float(time_horizon_years)
     monthly_savings = float(monthly_savings)
@@ -65,15 +88,11 @@ def risk_need_questionnaire(current_value, time_horizon_years, monthly_savings, 
     # Calculate required equity allocation using linear interpolation
     equity_allocation = ((target_value - total_bond_fv) / (total_equity_fv - total_bond_fv)) * 100
 
+    qa_data.eval_risk_need(equity_allocation)
+
     return round(equity_allocation, 2)
 
-def equity_allocation_to_risk_need(equity_allocation):
-    if equity_allocation < 30:
-        return "Niedrig" 
-    elif equity_allocation <= 70:
-        return "Mittel" 
-    else:
-        return "Hoch"
+
 
 #2. section of the questionnaire: "Risikotragfähigkeit"
 

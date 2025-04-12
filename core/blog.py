@@ -15,8 +15,8 @@ class BlogPost:
         self.slug = slug
         self.tags = tags
 
-def get_blog_posts(tag=None):
-    """Get all blog posts sorted by date, optionally filtered by tag."""
+def get_blog_posts(tags=None):
+    """Get all blog posts sorted by date, optionally filtered by tags."""
     posts = []
     blog_dir = Path('content/blog')
     
@@ -37,10 +37,10 @@ def get_blog_posts(tag=None):
             slug = file.stem.split('-', 3)[-1]
             
             # Get tags, default to empty list if not present
-            tags = post.get('tags', [])
+            post_tags = post.get('tags', [])
             
-            # Skip if tag filter is set and post doesn't have the tag
-            if tag and tag not in tags:
+            # Skip if tag filter is set and post doesn't have all the required tags
+            if tags and not all(tag in post_tags for tag in tags):
                 continue
             
             # Create BlogPost object
@@ -51,7 +51,7 @@ def get_blog_posts(tag=None):
                 description=post.get('description', ''),
                 author=post.get('author', 'Anonymous'),
                 slug=slug,
-                tags=tags
+                tags=post_tags
             )
             posts.append(blog_post)
         except Exception as e:

@@ -14,13 +14,13 @@ def impressum(request):
     })
 
 def blog_list(request):
-    tag = request.GET.get('tag')
-    posts = get_blog_posts(tag=tag)
-    tags = get_all_tags()
+    tags = request.GET.getlist('tag')  # Get all tags from the query parameters
+    posts = get_blog_posts(tags=tags)  # Pass the list of tags to get_blog_posts
+    all_tags = get_all_tags()
     return render(request, 'core/blog_list.html', {
         'posts': posts,
-        'tags': tags,
-        'current_tag': tag
+        'tags': all_tags,
+        'selected_tags': tags  # Pass the selected tags to the template
     })
 
 def blog_post(request, slug):
