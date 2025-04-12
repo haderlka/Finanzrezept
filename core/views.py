@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from core.blog import get_blog_posts, get_post_by_slug, get_all_tags
 from calculators.compound_interest.calculator import calculate_compound_interest
 from calculators.risk_profiler.calculator import calculate_risk_profile
@@ -8,6 +8,7 @@ from django.utils import timezone
 from datetime import timedelta
 from .models import PageView, CalculatorUsage
 from django.contrib.admin.views.decorators import staff_member_required
+from django.template import loader
 
 # Create your views here.
 
@@ -147,3 +148,7 @@ def statistics(request):
 def datenschutz(request):
     """View for the privacy policy page."""
     return render(request, 'core/datenschutz.html')
+
+def robots_txt(request):
+    template = loader.get_template('robots.txt')
+    return HttpResponse(template.render(request=request), content_type='text/plain')

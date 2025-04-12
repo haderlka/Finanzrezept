@@ -13,5 +13,6 @@ urlpatterns = [
     path('rechner/risikoprofil/', views.risk_profiler, name='risk_profiler'),
     path('statistiken/', views.statistics, name='statistics'),
     path('datenschutz/', views.datenschutz, name='datenschutz'),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
     path('suche/', views.search, name='search'),
 ] 

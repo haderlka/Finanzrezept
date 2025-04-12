@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /rechner/
+Disallow: /admin/
+Disallow: /statistiken/
+
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml 
