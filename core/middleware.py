@@ -6,15 +6,21 @@ class StatisticsMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Track page view
-        if not request.path.startswith('/admin/'):  # Don't track admin pages
-            PageView.objects.create(
-                url=request.path,
-                ip_address=request.META.get('REMOTE_ADDR'),
-                user_agent=request.META.get('HTTP_USER_AGENT'),
-                referrer=request.META.get('HTTP_REFERER'),
-                session_id=request.session.session_key
-            )
+        # Check if user has accepted cookies
+        cookie_consent = request.COOKIES.get('cookie_consent')
+        
+        # Only track if user has accepted cookies or hasn't made a choice yet
+        if cookie_consent != 'rejected':
+            # Don't track admin pages
+            if not request.path.startswith('/admin/'):
+                PageView.objects.create(
+                    url=request.path,
+                    ip_address=request.META.get('REMOTE_ADDR'),
+                    user_agent=request.META.get('HTTP_USER_AGENT'),
+                    referrer=request.META.get('HTTP_REFERER'),
+                    session_id=request.session.session_key,
+                    timestamp=timezone.now()
+                )
 
         response = self.get_response(request)
         return response
@@ -24,14 +30,18 @@ class CalculatorTrackingMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Track calculator usage
-        if request.method == 'POST' and '/rechner/' in request.path:
-            calculator_name = request.path.split('/')[-2]  # Get the calculator name from URL
+        # Check if user has accepted cookies
+        cookie_consent = request.COOKIES.get('cookie_consent')
+        
+        # Only track if user has accepted cookies or hasn't made a choice yet
+        if cookie_consent != 'rejected' and request.method == 'POST' and '/rechner/' in request.path:
+            calculator_name = request.path.split('/rechner/')[1].split('/')[0]
             CalculatorUsage.objects.create(
                 calculator_name=calculator_name,
                 ip_address=request.META.get('REMOTE_ADDR'),
                 session_id=request.session.session_key,
-                input_data=request.POST.dict()  # Store all POST data
+                input_data=dict(request.POST),
+                timestamp=timezone.now()
             )
 
         response = self.get_response(request)

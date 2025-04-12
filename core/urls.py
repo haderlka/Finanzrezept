@@ -12,5 +12,6 @@ urlpatterns = [
     path('rechner/zinseszins/', views.compound_interest_calculator, name='compound_interest_calculator'),
     path('rechner/risikoprofil/', views.risk_profiler, name='risk_profiler'),
     path('statistiken/', views.statistics, name='statistics'),
+    path('datenschutz/', views.datenschutz, name='datenschutz'),
     path('suche/', views.search, name='search'),
 ] 

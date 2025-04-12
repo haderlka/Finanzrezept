@@ -143,3 +143,7 @@ def statistics(request):
         'calculator_stats': calculator_stats,
     }
     return render(request, 'core/statistics.html', context)
+
+def datenschutz(request):
+    """View for the privacy policy page."""
+    return render(request, 'core/datenschutz.html')
