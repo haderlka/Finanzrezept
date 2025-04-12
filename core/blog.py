@@ -3,18 +3,20 @@ from datetime import datetime
 from pathlib import Path
 import frontmatter
 import markdown
+from collections import defaultdict
 
 class BlogPost:
-    def __init__(self, title, content, date, description, author, slug):
+    def __init__(self, title, content, date, description, author, slug, tags):
         self.title = title
         self.content = content
         self.date = date
         self.description = description
         self.author = author
         self.slug = slug
+        self.tags = tags
 
-def get_blog_posts():
-    """Get all blog posts sorted by date."""
+def get_blog_posts(tag=None):
+    """Get all blog posts sorted by date, optionally filtered by tag."""
     posts = []
     blog_dir = Path('content/blog')
     
@@ -34,6 +36,13 @@ def get_blog_posts():
             # Create slug from filename (remove date and extension)
             slug = file.stem.split('-', 3)[-1]
             
+            # Get tags, default to empty list if not present
+            tags = post.get('tags', [])
+            
+            # Skip if tag filter is set and post doesn't have the tag
+            if tag and tag not in tags:
+                continue
+            
             # Create BlogPost object
             blog_post = BlogPost(
                 title=post.get('title', 'Untitled'),
@@ -41,7 +50,8 @@ def get_blog_posts():
                 date=post.get('date', datetime.now().date()),
                 description=post.get('description', ''),
                 author=post.get('author', 'Anonymous'),
-                slug=slug
+                slug=slug,
+                tags=tags
             )
             posts.append(blog_post)
         except Exception as e:
@@ -73,10 +83,19 @@ def get_post_by_slug(slug):
                 date=post.get('date', datetime.now().date()),
                 description=post.get('description', ''),
                 author=post.get('author', 'Anonymous'),
-                slug=slug
+                slug=slug,
+                tags=post.get('tags', [])
             )
         except Exception as e:
             print(f"Error processing {file}: {e}")
             continue
     
-    return None 
+    return None
+
+def get_all_tags():
+    """Get all unique tags and their counts."""
+    tags = defaultdict(int)
+    for post in get_blog_posts():
+        for tag in post.tags:
+            tags[tag] += 1
+    return dict(tags) 

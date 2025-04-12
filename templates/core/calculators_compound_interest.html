@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="bi bi-calculator"></i> Zinseszinsrechner
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="row g-3">
+                            <!-- Initial Amount -->
+                            <div class="col-md-6">
+                                <label for="initial_amount" class="form-label">Anfangsbetrag (€)</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="initial_amount" 
+                                           name="initial_amount" value="{{ initial_amount|default:'1000' }}" 
+                                           min="0" step="100" required>
+                                    <span class="input-group-text">€</span>
+                                </div>
+                                <div class="form-text">Der Betrag, mit dem Sie starten möchten.</div>
+                            </div>
+                            
+                            <!-- Monthly Contribution -->
+                            <div class="col-md-6">
+                                <label for="monthly_contribution" class="form-label">Monatliche Einzahlung (€)</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="monthly_contribution" 
+                                           name="monthly_contribution" value="{{ monthly_contribution|default:'100' }}" 
+                                           min="0" step="10" required>
+                                    <span class="input-group-text">€</span>
+                                </div>
+                                <div class="form-text">Der Betrag, den Sie monatlich einzahlen möchten.</div>
+                            </div>
+                            
+                            <!-- Annual Interest Rate -->
+                            <div class="col-md-6">
+                                <label for="annual_interest_rate" class="form-label">Jährlicher Zinssatz (%)</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="annual_interest_rate" 
+                                           name="annual_interest_rate" value="{{ annual_interest_rate|default:'5' }}" 
+                                           min="0" step="0.1" required>
+                                    <span class="input-group-text">%</span>
+                                </div>
+                                <div class="form-text">Der erwartete jährliche Zinssatz.</div>
+                            </div>
+                            
+                            <!-- Years -->
+                            <div class="col-md-6">
+                                <label for="years" class="form-label">Anzahl der Jahre</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="years" 
+                                           name="years" value="{{ years|default:'10' }}" 
+                                           min="1" step="1" required>
+                                    <span class="input-group-text">Jahre</span>
+                                </div>
+                                <div class="form-text">Der Anlagezeitraum in Jahren.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-calculator"></i> Berechnen
+                            </button>
+                        </div>
+                    </form>
+                    
+                    {% if result %}
+                    <div class="mt-4">
+                        <h3 class="mb-3">Ergebnis</h3>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Endbetrag</h5>
+                                        <p class="card-text display-6 text-primary">
+                                            {{ result.future_value|floatformat:2 }} €
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Eingezahlt</h5>
+                                        <p class="card-text display-6 text-success">
+                                            {{ result.total_contributions|floatformat:2 }} €
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-light">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Zinsen</h5>
+                                        <p class="card-text display-6 text-info">
+                                            {{ result.interest_earned|floatformat:2 }} €
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Wie funktioniert der Zinseszins?</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Der Zinseszins ist der Zins, der auf bereits erwirtschaftete Zinsen gezahlt wird. 
+                        Dies führt zu einem exponentiellen Wachstum Ihres Vermögens, da die Zinsen 
+                        nicht nur auf den ursprünglichen Betrag, sondern auch auf die bereits 
+                        angesammelten Zinsen berechnet werden.
+                    </p>
+                    <p>
+                        Die Formel für die Berechnung des Zinseszinses lautet:
+                    </p>
+                    <p class="text-center">
+                        <strong>Endbetrag = Anfangsbetrag × (1 + Zinssatz)<sup>Zeitraum</sup> + Monatliche Einzahlung × ((1 + Zinssatz)<sup>Zeitraum</sup> - 1) / Zinssatz</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

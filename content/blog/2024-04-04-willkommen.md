@@ -3,6 +3,7 @@ title: Willkommen bei Finanzquant
 date: 2024-04-04
 description: Unser erster Blog-Beitrag über persönliche Finanzen in Deutschland
 author: Finanzquant Team
+tags: [Finanzplanung, Budgetierung, Steuern]
 ---
 
 # Willkommen bei Finanzquant

@@ -8,4 +8,6 @@ urlpatterns = [
     path('impressum/', views.impressum, name='impressum'),
     path('blog/', views.blog_list, name='blog_list'),
     path('blog/<slug:slug>/', views.blog_post, name='blog_post'),
+    path('rechner/', views.calculators, name='calculators'),
+    path('rechner/zinseszins/', views.compound_interest_calculator, name='compound_interest_calculator'),
 ] 
