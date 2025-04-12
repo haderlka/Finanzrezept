@@ -63,3 +63,38 @@ def compound_interest_calculator(request):
         'annual_interest_rate': annual_interest_rate,
         'years': years
     })
+
+def search(request):
+    query = request.GET.get('q', '')
+    blog_results = []
+    calculator_results = []
+
+    if query:
+        # Search in blog posts
+        all_posts = get_blog_posts()
+        for post in all_posts:
+            if (query.lower() in post.title.lower() or 
+                query.lower() in post.description.lower() or 
+                query.lower() in post.content.lower()):
+                blog_results.append(post)
+
+        # Search in calculators
+        available_calculators = [
+            {
+                'title': 'Zinseszinsrechner',
+                'description': 'Berechnen Sie, wie sich Ihr Vermögen durch Zinseszins entwickelt.',
+                'url': '/rechner/zinseszins/'
+            }
+        ]
+        
+        # Only add calculators that match the search query
+        for calculator in available_calculators:
+            if (query.lower() in calculator['title'].lower() or 
+                query.lower() in calculator['description'].lower()):
+                calculator_results.append(calculator)
+
+    return render(request, 'core/search.html', {
+        'query': query,
+        'blog_results': blog_results,
+        'calculator_results': calculator_results
+    })

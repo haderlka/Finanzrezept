@@ -10,4 +10,5 @@ urlpatterns = [
     path('blog/<slug:slug>/', views.blog_post, name='blog_post'),
     path('rechner/', views.calculators, name='calculators'),
     path('rechner/zinseszins/', views.compound_interest_calculator, name='compound_interest_calculator'),
+    path('suche/', views.search, name='search'),
 ] 

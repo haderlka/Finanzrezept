@@ -86,6 +86,14 @@
                         </a>
                     </li>
                 </ul>
+                <form class="d-flex" action="{% url 'core:search' %}" method="get">
+                    <div class="input-group">
+                        <input type="search" class="form-control" name="q" placeholder="Suchen..." aria-label="Search" value="{{ request.GET.q }}">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </nav>

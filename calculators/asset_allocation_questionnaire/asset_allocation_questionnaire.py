@@ -1,7 +1,11 @@
 from ..generic.constants import EXPECTED_REAL_RATE_OF_EQUITY_RETURN, EXPECTED_REAL_RATE_OF_BONDS_RETURN
 
+class Questionnaire:
+    def __init__(self):
+        pass
+
 #1. section of the questionnaire: "Risikonotwendigkeit"
-def risk_need_questionnaire(current_value, time_horizon_years, monthly_saings, target_value, equity_return=EXPECTED_REAL_RATE_OF_EQUITY_RETURN, bonds_return=EXPECTED_REAL_RATE_OF_BONDS_RETURN):
+def risk_need_questionnaire(current_value, time_horizon_years, monthly_savings, target_value, equity_return=EXPECTED_REAL_RATE_OF_EQUITY_RETURN, bonds_return=EXPECTED_REAL_RATE_OF_BONDS_RETURN):
     """
     Calculate the risk need of an investor.
 
@@ -11,7 +15,7 @@ def risk_need_questionnaire(current_value, time_horizon_years, monthly_saings, t
     Args:
         current_value (str): The current value of the investor's portfolio
         time_horizon_years (str): The time horizon of the investor's investment
-        monthly_saings (str): The monthly savings of the investor
+        monthly_savings (str): The monthly savings of the investor -> Can also be negative
         target_value (str): The target value of the investor's portfolio
         
     Returns:
@@ -20,7 +24,7 @@ def risk_need_questionnaire(current_value, time_horizon_years, monthly_saings, t
     # Convert inputs to float
     current_value = float(current_value)
     time_horizon_years = float(time_horizon_years)
-    monthly_saings = float(monthly_saings)
+    monthly_savings = float(monthly_savings)
     target_value = float(target_value)
     
     # Convert annual rates to monthly rates
@@ -39,12 +43,12 @@ def risk_need_questionnaire(current_value, time_horizon_years, monthly_saings, t
     # Calculate future value of monthly contributions with 100% equity
     equity_contributions_fv = 0
     for month in range(int(total_months)):
-        equity_contributions_fv += monthly_saings * (1 + equity_monthly_rate) ** (total_months - month)
+        equity_contributions_fv += monthly_savings * (1 + equity_monthly_rate) ** (total_months - month)
     
     # Calculate future value of monthly contributions with 100% bonds
     bond_contributions_fv = 0
     for month in range(int(total_months)):
-        bond_contributions_fv += monthly_saings * (1 + bond_monthly_rate) ** (total_months - month)
+        bond_contributions_fv += monthly_savings * (1 + bond_monthly_rate) ** (total_months - month)
     
     # Calculate total future values
     total_equity_fv = equity_fv + equity_contributions_fv
@@ -72,5 +76,6 @@ def equity_allocation_to_risk_need(equity_allocation):
         return "Hoch"
 
 #2. section of the questionnaire: "Risikotragfähigkeit"
+
 
 #1. section of the questionnaire: "Risikobereitschaft"
