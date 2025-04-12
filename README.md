@@ -1,4 +1,4 @@
-# Finanzquant - German Personal Finance Manager
+# finanzrezept - German Personal Finance Manager
 
 A Django-based personal finance management system designed specifically for the German market.
 

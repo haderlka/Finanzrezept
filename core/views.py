@@ -10,7 +10,7 @@ def home(request):
 
 def impressum(request):
     return render(request, 'core/impressum.html', {
-        'title': 'Impressum - Finanzquant'
+        'title': 'Impressum - Finanzrezept'
     })
 
 def blog_list(request):

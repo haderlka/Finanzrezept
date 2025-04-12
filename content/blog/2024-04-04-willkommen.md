@@ -1,12 +1,12 @@
 ---
-title: Willkommen bei Finanzquant
+title: Willkommen bei Finanzrezept
 date: 2024-04-04
 description: Unser erster Blog-Beitrag über persönliche Finanzen in Deutschland
-author: Finanzquant Team
+author: Finanzrezept Team
 tags: [Finanzplanung, Budgetierung, Steuern]
 ---
 
-# Willkommen bei Finanzquant
+# Willkommen bei Finanzrezept
 
 Wir freuen uns, Sie auf unserem Blog begrüßen zu dürfen. Hier werden wir regelmäßig über wichtige Themen der persönlichen Finanzen in Deutschland berichten.
 
