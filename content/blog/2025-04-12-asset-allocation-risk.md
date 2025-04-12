@@ -8,13 +8,11 @@ tags: [Asset Allocation, Finanzplanung]
 
 # Asset Allocation – Wie viel Risiko?
 
-Keine Rendite ohne Risiko – doch wie viel Risiko ist für dich angemessen? Diese Frage ist entscheidend für deine Anlagestrategie. Die Asset Allocation, also die Aufteilung deines Vermögens zwischen risikobehafteten und risikoarmen Anlagen, spielt dabei eine zentrale Rolle. In diesem Beitrag geht es nur um risikoarm vs. risikoreich, die Aufteilung innerhalb dieser beiden Kategorien wird in anderen Beiträgen behandelt.
-
-> Mit "Risiko" ist in diesem Beitrag hauptäschlich Volatilität des Investments gemeint.
+Keine Rendite ohne Risiko – doch wie viel Risiko ist für dich angemessen? Diese Frage ist entscheidend für deine Anlagestrategie. Die Asset Allocation, also die Aufteilung deines Vermögens, spielt dabei eine zentrale Rolle. In diesem Beitrag geht es nur um risikoarm vs. risikoreich. Falls du nach der Aufteilung innerhalb dieser beiden Kategorien suchst, kann ich dich hoffenltich bald auf einen anderen Beitrag verweisen.
 
 ## Die wichtigsten Kriterien für deine Asset Allocation
 
-Die ideale Vermögensaufteilung hängt von mehreren Faktoren ab. Das wichtigste Kriterium ist dein Anlageziel – beispielsweise Altersvorsorge, Immobilienkauf oder Vermögensaufbau für die nächste Generation. Darüber hinaus solltest du folgende Aspekte berücksichtigen:
+Die ideale Vermögensaufteilung hängt von mehreren Faktoren ab. Das wichtigste Kriterium ist dein Anlageziel. Spontan fallen mir als Anlageziele ein: Altersvorsorge, Immobiliefinanzierung und Studienkonto für die Kinder. Die Kriterien sind aber allgemein gültig und lassen sich auf beliebige finanzielle Ziele anwenden. Wenn du dir Klarheit über dein Anlageziel verschafft hast, solltes du folgende Aspekte berücksichtigen:
 
 ### 1. Deine Risikobereitschaft
 Deine persönliche Risikobereitschaft bestimmt, wie viel Schwankung du emotional aushalten kannst, ohne unüberlegte Entscheidungen zu treffen. Wichtig ist, dass du über deinen gesamten Anlagehorizont hinweg ruhig schlafen kannst.

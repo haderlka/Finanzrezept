@@ -1,53 +1,50 @@
 {% extends 'base.html' %}
 
-{% block title %}Finanzrezept - Ihr persönlicher Finanzmanager{% endblock %}
-
 {% block content %}
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-            <h1 class="display-4 mb-4">
-                <i class="bi bi-graph-up"></i> Willkommen bei Finanzrezept
-            </h1>
-            <p class="lead mb-4">
-                Ihr persönlicher Finanzmanager für Deutschland. 
-                Entdecken Sie unsere Tools und Ressourcen für bessere Finanzentscheidungen.
-            </p>
-            
-            <div class="row g-4 mt-5">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="bi bi-journal-text"></i> Blog
-                            </h5>
-                            <p class="card-text">
-                                Lesen Sie unsere Artikel zu Finanzthemen, 
-                                Steuertipps und Investmentstrategien.
-                            </p>
-                            <a href="{% url 'core:blog_list' %}" class="btn btn-primary">
-                                Zum Blog
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="bi bi-calculator"></i> Rechner
-                            </h5>
-                            <p class="card-text">
-                                Nutzen Sie unsere Finanzrechner für 
-                                Zinseszins, Steuern und mehr.
-                            </p>
-                            <a href="{% url 'core:calculators' %}" class="btn btn-primary">
-                                Zu den Rechnern
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-4 fw-bold text-primary">
+        <i class="bi bi-graph-up-arrow"></i> Willkommen bei Finanzquant
+    </h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+            Ihr persönlicher Finanzmanager für intelligentes Vermögensmanagement in Deutschland.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="#features" class="btn btn-primary btn-lg px-4 gap-3">
+                <i class="bi bi-info-circle"></i> Mehr erfahren
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="features" class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">Funktionen</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 p-3 rounded">
+                <i class="bi bi-piggy-bank"></i>
+            </div>
+            <div>
+                <h3 class="fs-2">Budgetierung</h3>
+                <p>Erstellen und verwalten Sie Ihr persönliches Budget mit intelligenten Kategorien und Zielen.</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 p-3 rounded">
+                <i class="bi bi-cash-coin"></i>
+            </div>
+            <div>
+                <h3 class="fs-2">Ausgabenverfolgung</h3>
+                <p>Behalten Sie den Überblick über Ihre Ausgaben mit detaillierten Berichten und Analysen.</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 p-3 rounded">
+                <i class="bi bi-calculator"></i>
+            </div>
+            <div>
+                <h3 class="fs-2">Steuerrechner</h3>
+                <p>Nutzen Sie unsere Steuerrechner für eine optimale Finanzplanung nach deutschen Standards.</p>
             </div>
         </div>
     </div>
