@@ -32,16 +32,6 @@ python manage.py runserver
 
 Visit http://127.0.0.1:8000/ to access the application.
 
-## Features (Planned)
-
-- Budget tracking and management
-- Expense categorization
-- Income tracking
-- German tax calculation helpers
-- Investment portfolio tracking
-- Retirement planning tools
-- German-specific financial regulations compliance
-
 ## Development
 
 This project uses:

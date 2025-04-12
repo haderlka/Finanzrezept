@@ -10,7 +10,7 @@ tags: [Asset Allocation, Finanzplanung]
 
 Keine Rendite ohne Risiko – doch wie viel Risiko ist für dich angemessen? Diese Frage ist entscheidend für deine Anlagestrategie. Die Asset Allocation, also die Aufteilung deines Vermögens zwischen risikobehafteten und risikoarmen Anlagen, spielt dabei eine zentrale Rolle. In diesem Beitrag geht es nur um risikoarm vs. risikoreich, die Aufteilung innerhalb dieser beiden Kategorien wird in anderen Beiträgen behandelt.
 
-> Risiko in diesem Beitrag meint die Schwankungsbreite (Volatilität) des Investments und die Unsicherheit darüber, wie sich der Wert in der Zukunft entwickelt – einschließlich der Möglichkeit, dass es zu vorübergehenden oder dauerhaften Verlusten kommt.
+> Mit "Risiko" ist in diesem Beitrag hauptäschlich Volatilität des Investments gemeint.
 
 ## Die wichtigsten Kriterien für deine Asset Allocation
 
