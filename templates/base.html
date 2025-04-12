@@ -9,6 +9,54 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {% block extra_css %}{% endblock %}
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Markdown Blockquote Styling */
+        blockquote {
+            background-color: #e7f1ff;  /* Lighter version of primary blue */
+            border-left: 4px solid #0d6efd;  /* Bootstrap primary blue */
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+        
+        blockquote p {
+            margin-bottom: 0;
+        }
+        
+        /* Add icon for different types of blockquotes */
+        blockquote[data-type="hint"]::before {
+            content: "💡";
+            margin-right: 0.5rem;
+            font-size: 1.2em;
+        }
+        
+        blockquote[data-type="rule"]::before {
+            content: "📋";
+            margin-right: 0.5rem;
+            font-size: 1.2em;
+        }
+        
+        blockquote[data-type="warning"]::before {
+            content: "⚠️";
+            margin-right: 0.5rem;
+            font-size: 1.2em;
+        }
+        
+        blockquote[data-type="info"]::before {
+            content: "ℹ️";
+            margin-right: 0.5rem;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body class="bg-light">
     <!-- Navigation -->
