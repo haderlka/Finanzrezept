@@ -79,51 +79,235 @@
                 <div class="mb-4">
                     <h2 class="h4 mb-3">3. Verhaltensbezogene Risikotoleranz</h2>
                     
-                    <div class="mb-3">
-                        <label class="form-label">Wie würden Sie Ihr Wissen über Finanzmärkte einschätzen?</label>
+                    <div class="mb-4">
+                        <label class="form-label">Wie würden deine Freunde dich als Risikoträger beschreiben?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_high" value="high" required>
-                            <label class="form-check-label" for="knowledge_high">Sehr gut</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question1" id="behavioral_question1_a" value="4" required>
+                            <label class="form-check-label" for="behavioral_question1_a">Ein echter Spieler</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_medium" value="medium">
-                            <label class="form-check-label" for="knowledge_medium">Gut</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question1" id="behavioral_question1_b" value="3">
+                            <label class="form-check-label" for="behavioral_question1_b">Bereit, Risiken einzugehen, nachdem ich mich ausreichend informiert habe</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="financial_knowledge" id="knowledge_low" value="low">
-                            <label class="form-check-label" for="knowledge_low">Gering</label>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Wie haben Sie in der Vergangenheit auf Marktverluste reagiert?</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_hold" value="hold" required>
-                            <label class="form-check-label" for="reaction_hold">Positionen gehalten</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question1" id="behavioral_question1_c" value="2">
+                            <label class="form-check-label" for="behavioral_question1_c">Vorsichtig</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_sell" value="sell">
-                            <label class="form-check-label" for="reaction_sell">Verkauft</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_reaction" id="reaction_buy" value="buy">
-                            <label class="form-check-label" for="reaction_buy">Nachgekauft</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question1" id="behavioral_question1_d" value="1">
+                            <label class="form-check-label" for="behavioral_question1_d">Ein echter Risikovermeider</label>
                         </div>
                     </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Wie schätzen Sie das Risiko des Aktienmarktes ein?</label>
+
+                    <div class="mb-4">
+                        <label class="form-label">Du bist in einer Gameshow und kannst eines der folgenden Angebote wählen. Was würdest du nehmen?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_high" value="high" required>
-                            <label class="form-check-label" for="risk_high">Sehr riskant</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question2" id="behavioral_question2_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question2_a">1.000€ in bar</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_medium" value="medium">
-                            <label class="form-check-label" for="risk_medium">Mäßig riskant</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question2" id="behavioral_question2_b" value="2">
+                            <label class="form-check-label" for="behavioral_question2_b">Eine 50% Chance auf 5.000€</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="market_risk_perception" id="risk_low" value="low">
-                            <label class="form-check-label" for="risk_low">Wenig riskant</label>
+                            <input class="form-check-input" type="radio" name="behavioral_question2" id="behavioral_question2_c" value="3">
+                            <label class="form-check-label" for="behavioral_question2_c">Eine 25% Chance auf 10.000€</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question2" id="behavioral_question2_d" value="4">
+                            <label class="form-check-label" for="behavioral_question2_d">Eine 5% Chance auf 100.000€</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Du hast gerade für einen "Einmal-im-Leben-Urlaub" gespart. Drei Wochen vor deiner geplanten Abreise verlierst du deinen Job. Du würdest:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question3" id="behavioral_question3_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question3_a">Den Urlaub absagen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question3" id="behavioral_question3_b" value="2">
+                            <label class="form-check-label" for="behavioral_question3_b">Einen viel bescheideneren Urlaub machen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question3" id="behavioral_question3_c" value="3">
+                            <label class="form-check-label" for="behavioral_question3_c">Wie geplant fahren, da du die Zeit brauchst, um dich auf die Jobsuche vorzubereiten</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question3" id="behavioral_question3_d" value="4">
+                            <label class="form-check-label" for="behavioral_question3_d">Den Urlaub verlängern, da dies deine letzte Chance sein könnte</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Wenn du unerwartet 20.000€ zum Investieren erhalten würdest, was würdest du tun?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question4" id="behavioral_question4_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question4_a">Es auf ein Bankkonto einzahlen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question4" id="behavioral_question4_b" value="2">
+                            <label class="form-check-label" for="behavioral_question4_b">Es in sichere, hochwertige Anleihen oder Anleihenfonds investieren</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question4" id="behavioral_question4_c" value="3">
+                            <label class="form-check-label" for="behavioral_question4_c">Es in Aktien oder Aktienfonds investieren</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Wie wohl fühlst du dich beim Investieren in Aktien oder Aktienfonds?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question5" id="behavioral_question5_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question5_a">Überhaupt nicht wohl</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question5" id="behavioral_question5_b" value="2">
+                            <label class="form-check-label" for="behavioral_question5_b">Einigermaßen wohl</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question5" id="behavioral_question5_c" value="3">
+                            <label class="form-check-label" for="behavioral_question5_c">Sehr wohl</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Wenn du an das Wort "Risiko" denkst, welches der folgenden Wörter kommt dir als erstes in den Sinn?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question6" id="behavioral_question6_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question6_a">Verlust</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question6" id="behavioral_question6_b" value="2">
+                            <label class="form-check-label" for="behavioral_question6_b">Unsicherheit</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question6" id="behavioral_question6_c" value="3">
+                            <label class="form-check-label" for="behavioral_question6_c">Chance</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question6" id="behavioral_question6_d" value="4">
+                            <label class="form-check-label" for="behavioral_question6_d">Kick</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Einige Experten sagen voraus, dass die Preise von Vermögenswerten wie Gold, Edelsteinen, Sammlerstücken und Immobilien (Sachwerte) steigen werden. Anleihepreise könnten fallen, aber Experten sind sich einig, dass Staatsanleihen relativ sicher sind. Der größte Teil deiner Anlagevermögen befindet sich derzeit in hochverzinslichen Staatsanleihen. Was würdest du tun?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question7" id="behavioral_question7_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question7_a">Die Anleihen behalten</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question7" id="behavioral_question7_b" value="2">
+                            <label class="form-check-label" for="behavioral_question7_b">Die Anleihen verkaufen, die Hälfte des Erlöses auf Geldmarktkonten anlegen und die andere Hälfte in Sachwerte investieren</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question7" id="behavioral_question7_c" value="3">
+                            <label class="form-check-label" for="behavioral_question7_c">Die Anleihen verkaufen und den gesamten Erlös in Sachwerte investieren</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question7" id="behavioral_question7_d" value="4">
+                            <label class="form-check-label" for="behavioral_question7_d">Die Anleihen verkaufen, alles in Sachwerte investieren und zusätzliches Geld leihen, um mehr zu kaufen</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Angesichts der besten und schlechtesten Renditen der vier Anlageoptionen unten, welche würdest du bevorzugen?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question8" id="behavioral_question8_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question8_a">200€ Gewinn best case; 0€ Gewinn/Verlust worst case</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question8" id="behavioral_question8_b" value="2">
+                            <label class="form-check-label" for="behavioral_question8_b">600€ Gewinn best case; 200€ Verlust worst case</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question8" id="behavioral_question8_c" value="3">
+                            <label class="form-check-label" for="behavioral_question8_c">2.600€ Gewinn best case; 800€ Verlust worst case</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question8" id="behavioral_question8_d" value="4">
+                            <label class="form-check-label" for="behavioral_question8_d">4.800€ Gewinn best case; 2.400€ Verlust worst case</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Zusätzlich zu deinem Besitz erhältst du 1.000€. Du musst jetzt zwischen folgenden Optionen wählen:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question9" id="behavioral_question9_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question9_a">Ein sicherer Gewinn von 500€</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question9" id="behavioral_question9_b" value="3">
+                            <label class="form-check-label" for="behavioral_question9_b">Eine 50% Chance auf 1.000€ und eine 50% Chance auf nichts</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Zusätzlich zu deinem Besitz erhältst du 2.000€. Du musst jetzt zwischen folgenden Optionen wählen:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question10" id="behavioral_question10_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question10_a">Ein sicherer Verlust von 500€</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question10" id="behavioral_question10_b" value="3">
+                            <label class="form-check-label" for="behavioral_question10_b">Eine 50% Chance auf 1.000€ Verlust und eine 50% Chance auf keinen Verlust</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Angenommen, ein Verwandter hinterlässt dir ein Erbe von 100.000€ und bestimmt im Testament, dass du das GESAMTE Geld in EINE der folgenden Optionen investieren musst. Welche würdest du wählen?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question11" id="behavioral_question11_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question11_a">Ein Sparkonto oder Geldmarktfonds</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question11" id="behavioral_question11_b" value="2">
+                            <label class="form-check-label" for="behavioral_question11_b">Ein Fonds, der Aktien und Anleihen hält</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question11" id="behavioral_question11_c" value="3">
+                            <label class="form-check-label" for="behavioral_question11_c">Ein Portfolio aus 15 Einzelaktien</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question11" id="behavioral_question11_d" value="4">
+                            <label class="form-check-label" for="behavioral_question11_d">Rohstoffe wie Gold, Silber und Öl</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Wenn du 20.000€ investieren müsstest, welche der folgenden Anlageoptionen würdest du am attraktivsten finden?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question12" id="behavioral_question12_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question12_a">60% in risikoarme Anlagen, 30% in mittelrisikoreiche Anlagen, 10% in hochriskante Anlagen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question12" id="behavioral_question12_b" value="2">
+                            <label class="form-check-label" for="behavioral_question12_b">30% in risikoarme Anlagen, 40% in mittelrisikoreiche Anlagen, 30% in hochriskante Anlagen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question12" id="behavioral_question12_c" value="3">
+                            <label class="form-check-label" for="behavioral_question12_c">10% in risikoarme Anlagen, 40% in mittelrisikoreiche Anlagen, 50% in hochriskante Anlagen</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Dein vertrauenswürdiger Freund und Nachbar, ein erfahrener Geologe, stellt eine Gruppe von Investoren zusammen, um ein Goldminenprojekt zu finanzieren. Das Projekt könnte 50- bis 100-fach zurückzahlen, wenn es erfolgreich ist. Wenn die Mine ein Reinfall ist, ist die gesamte Investition wertlos. Dein Freund schätzt die Erfolgschance auf nur 20%. Wenn du das Geld hättest, wie viel würdest du investieren?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question13" id="behavioral_question13_a" value="1" required>
+                            <label class="form-check-label" for="behavioral_question13_a">Nichts</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question13" id="behavioral_question13_b" value="2">
+                            <label class="form-check-label" for="behavioral_question13_b">Ein Monatsgehalt</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question13" id="behavioral_question13_c" value="3">
+                            <label class="form-check-label" for="behavioral_question13_c">Drei Monatsgehälter</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="behavioral_question13" id="behavioral_question13_d" value="4">
+                            <label class="form-check-label" for="behavioral_question13_d">Sechs Monatsgehälter</label>
                         </div>
                     </div>
                 </div>

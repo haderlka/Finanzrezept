@@ -88,21 +88,74 @@ def determine_risk_ability(additional_benefits, monthly_savings, time_horizon):
             text = "Du hast einen langen Zeithorizont, aber in schwierigen Zeiten wenig Puffer über deine Sparrate oder zusätzliche Absicherung."
     return res, text
 
-def calculate_behavioral_tolerance(financial_knowledge, market_reaction, market_risk_perception):
+def determine_behavioral_tolerance(answers):
     """
-    Calculate behavioral loss tolerance based on various factors.
+    Determine the behavioral risk tolerance based on the questionnaire answers.
+    
+    Args:
+        answers: Dictionary containing answers to behavioral questions
+        
+    Returns:
+        str: Risk tolerance level ('high', 'moderate', 'low', 'very_low')
     """
-    knowledge_score = {'high': 3, 'medium': 2, 'low': 1}[financial_knowledge]
-    reaction_score = {'hold': 3, 'sell': 1, 'buy': 5}[market_reaction]
-    perception_score = {'high': 1, 'medium': 3, 'low': 5}[market_risk_perception]
+    # Calculate total score
+    behavioral_tolerance_text = ""
+    total_score = 0
+    result = ""
     
-    total_score = knowledge_score + reaction_score + perception_score
+    # Question 1: Risk taker description
+    total_score += int(answers.get('behavioral_question1', 0))
     
-    if total_score >= 9:
-        return 'high'
-    elif total_score >= 6:
-        return 'moderate'
-    return 'low'
+    # Question 2: Game show choice
+    total_score += int(answers.get('behavioral_question2', 0))
+    
+    # Question 3: Vacation decision
+    total_score += int(answers.get('behavioral_question3', 0))
+    
+    # Question 4: 20k investment choice
+    total_score += int(answers.get('behavioral_question4', 0))
+    
+    # Question 5: Comfort with stocks
+    total_score += int(answers.get('behavioral_question5', 0))
+    
+    # Question 6: Risk word association
+    total_score += int(answers.get('behavioral_question6', 0))
+    
+    # Question 7: Bond vs hard assets
+    total_score += int(answers.get('behavioral_question7', 0))
+    
+    # Question 8: Investment choice with best/worst case
+    total_score += int(answers.get('behavioral_question8', 0))
+    
+    # Question 9: Sure gain vs chance
+    total_score += int(answers.get('behavioral_question9', 0))
+    
+    # Question 10: Sure loss vs chance
+    total_score += int(answers.get('behavioral_question10', 0))
+    
+    # Question 11: 100k inheritance investment
+    total_score += int(answers.get('behavioral_question11', 0))
+    
+    # Question 12: 20k portfolio allocation
+    total_score += int(answers.get('behavioral_question12', 0))
+    
+    # Question 13: Gold mine investment
+    total_score += int(answers.get('behavioral_question13', 0))
+    
+    # Determine risk level based on total score
+    if total_score >= 33:
+        result = 'high'
+        behavioral_tolerance_text = "Du gehst gerne Risiken ein"
+    elif total_score >= 23:
+        result = 'moderate'
+        behavioral_tolerance_text = "Du kannst Risiken eingehen, wenn es dir sinnvoll erscheint."
+    elif total_score >= 19:
+        result = 'low'
+        behavioral_tolerance_text = "Du gehst nicht gerne Risiken ein"
+    else:
+        result = 'very_low'
+        behavioral_tolerance_text = "Risiken und Unsicherheit machen dir Angst."
+    return result, behavioral_tolerance_text
 
 def determine_portfolio_allocation(risk_need, risk_ability, behavioral_tolerance):
     """
@@ -148,12 +201,7 @@ def calculate_risk_profile(form_data):
     risk_ability, risk_ability_text = determine_risk_ability(additional_benefits, monthly_savings, time_horizon)
     
     # Calculate behavioral tolerance
-    financial_knowledge = form_data.get('financial_knowledge')
-    market_reaction = form_data.get('market_reaction')
-    market_risk_perception = form_data.get('market_risk_perception')
-    behavioral_tolerance = calculate_behavioral_tolerance(
-        financial_knowledge, market_reaction, market_risk_perception
-    )
+    behavioral_tolerance, behavioral_tolerance_text = determine_behavioral_tolerance(form_data.get('behavioral_answers', {}))
     
     # Determine portfolio allocation
     portfolio = determine_portfolio_allocation(risk_need, risk_ability, behavioral_tolerance)
@@ -164,6 +212,7 @@ def calculate_risk_profile(form_data):
         'risk_ability': risk_ability,
         'risk_ability_text': risk_ability_text,
         'behavioral_tolerance': behavioral_tolerance,
+        'behavioral_tolerance_text': behavioral_tolerance_text,
         'allocation': portfolio['allocation'],
         'equity_percentage': portfolio['equity_percentage'],
         'explanation': portfolio['explanation']

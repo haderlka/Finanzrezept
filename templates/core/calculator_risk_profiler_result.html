@@ -29,7 +29,7 @@
                             <div class="text-center">
                                 <h4>Risikotragfähigkeit</h4>
                                 <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar {% if risk_ability == 'high' %}bg-danger{% elif risk_ability == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                    <div class="progress-bar {% if risk_ability == 'high' %}bg-success{% elif risk_ability == 'moderate' %}bg-warning{% else %}bg-danger{% endif %}" 
                                          role="progressbar" 
                                          style="width: {% if risk_ability == 'high' %}100%{% elif risk_ability == 'moderate' %}50%{% else %}25%{% endif %};">
                                         {{ risk_ability|title }}
@@ -41,9 +41,9 @@
                             <div class="text-center">
                                 <h4>Risikotoleranz</h4>
                                 <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar {% if behavioral_tolerance == 'high' %}bg-danger{% elif behavioral_tolerance == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                    <div class="progress-bar {% if behavioral_tolerance == 'high' %}bg-info{% elif behavioral_tolerance == 'moderate' %}bg-info{% elif behavioral_tolerance == 'low' %}bg-secondary{% elif behavioral_tolerance == 'very_low' %}bg-secondary{% endif %}" 
                                          role="progressbar" 
-                                         style="width: {% if behavioral_tolerance == 'high' %}100%{% elif behavioral_tolerance == 'moderate' %}50%{% else %}25%{% endif %};">
+                                         style="width: {% if behavioral_tolerance == 'high' %}100%{% elif behavioral_tolerance == 'moderate' %}75%{% elif behavioral_tolerance == 'low' %}50%{% elif behavioral_tolerance == 'very_low' %}25%{% endif %};">
                                         {{ behavioral_tolerance|title }}
                                     </div>
                                 </div>
@@ -55,6 +55,7 @@
                         <h4 class="alert-heading">Details</h4>
                         <p><strong>Risikobedarf:</strong> Rein rechnerisch benötigst du eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>.</p>
                         <p><strong>Risikotragfähigkeit:</strong> {{ risk_ability_text }}</p>
+                        <p><strong>Risikotoleranz:</strong> {{ behavioral_tolerance_text }}</p>
                     </div>
 
                     <div class="card mb-4">
@@ -84,9 +85,8 @@
 
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Wichtiger Hinweis</h4>
-                        <p>Diese Analyse dient nur als Orientierungshilfe und ersetzt keine professionelle Anlageberatung. 
-                        Bitte beachten Sie, dass alle Anlagen mit Risiken verbunden sind und vergangene Wertentwicklungen 
-                        keine Garantie für zukünftige Ergebnisse darstellen.</p>
+                        <p>Diese Analyse dient nur als Orientierungshilfe und ist keine professionelle Anlageberatung. </p>
+                        <p>Erklärungen zur Berechnung und ein Verweis auf Quellen findest du in folgendem Beitrag: <a href="{% url 'core:blog_post' 'asset-allocation-risk' %}">Asset Allocation – Wie viel Risiko?</a></p>
                     </div>
 
                     <div class="text-center mt-4">
