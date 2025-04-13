@@ -65,15 +65,28 @@ def determine_risk_need(required_alloc):
     else:
         return 'high'
 
-def determine_risk_ability(preservation_importance, income_ratio):
+def determine_risk_ability(additional_benefits, monthly_savings, time_horizon):
     """
-    Determine risk-taking ability based on preservation importance and income ratio.
+    Determine risk-taking ability
     """
-    if preservation_importance == 'high' or income_ratio == 'low':
-        return 'low'
-    elif preservation_importance == 'low' and income_ratio == 'high':
-        return 'high'
-    return 'moderate'
+    text = ""
+    res = ''
+    if time_horizon <= 5:
+        res = 'low'
+        text = "Dein Zeithorizont ist zu kurz für eine hohe Aktienquote."
+    elif (additional_benefits == 'low' and monthly_savings <= 0):
+        res = 'low'
+        text = "Du hast zu wenig Absicherung neben deinem Investment für eine hohe Aktienquote. Auch deine Sparrate ist zu gering um als Puffer zu dienen."
+    elif time_horizon >=10 and (additional_benefits == 'high' or monthly_savings >= 1000):
+        res = 'high'
+        text = "Du hast einen langen Zeithorizont und kannst über zusätzliche Absicherung oder aussetzen der Sparrate schlechte Zeiten überbrücken."
+    else:
+        res = 'moderate'
+        if time_horizon < 10:
+            text = "Du hast einen mittleren Zeithorizont"
+        else:
+            text = "Du hast einen langen Zeithorizont, aber in schwierigen Zeiten wenig Puffer über deine Sparrate oder zusätzliche Absicherung."
+    return res, text
 
 def calculate_behavioral_tolerance(financial_knowledge, market_reaction, market_risk_perception):
     """
@@ -131,9 +144,8 @@ def calculate_risk_profile(form_data):
     risk_need = determine_risk_need(required_equity_rate)
     
     # Determine risk ability
-    preservation_importance = form_data.get('preservation_importance')
-    income_ratio = form_data.get('income_ratio')
-    risk_ability = determine_risk_ability(preservation_importance, income_ratio)
+    additional_benefits = form_data.get('additional_benefits')
+    risk_ability, risk_ability_text = determine_risk_ability(additional_benefits, monthly_savings, time_horizon)
     
     # Calculate behavioral tolerance
     financial_knowledge = form_data.get('financial_knowledge')
@@ -150,6 +162,7 @@ def calculate_risk_profile(form_data):
         'required_equity_rate': required_equity_rate,
         'risk_need': risk_need,
         'risk_ability': risk_ability,
+        'risk_ability_text': risk_ability_text,
         'behavioral_tolerance': behavioral_tolerance,
         'allocation': portfolio['allocation'],
         'equity_percentage': portfolio['equity_percentage'],

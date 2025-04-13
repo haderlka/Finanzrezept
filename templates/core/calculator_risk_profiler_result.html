@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h2 class="text-center">Ihr Risikoprofil</h2>
+                    <h2 class="text-center">Dein Risikoprofil</h2>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
@@ -52,8 +52,9 @@
                     </div>
 
                     <div class="alert alert-info">
-                        <h4 class="alert-heading">Erforderliche Rendite</h4>
-                        <p><strong>Risikobedarf:</strong> Basierend auf Ihren Zielen und Sparplänen benötigen Sie eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>.</p>
+                        <h4 class="alert-heading">Details</h4>
+                        <p><strong>Risikobedarf:</strong> Rein rechnerisch benötigst du eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>.</p>
+                        <p><strong>Risikotragfähigkeit:</strong> {{ risk_ability_text }}</p>
                     </div>
 
                     <div class="card mb-4">

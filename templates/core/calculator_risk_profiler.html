@@ -8,7 +8,7 @@
     
     <div class="card">
         <div class="card-body">
-            <p class="lead">Dieser Rechner hilft Ihnen, Ihr persönliches Risikoprofil zu ermitteln. Bitte beantworten Sie die folgenden Fragen ehrlich und nach bestem Wissen.</p>
+            <p class="lead">Dieser Rechner gibt dir eine Empfehlung für deine persönliche Aktienquote. Hintergründe zur Berechnung findest du in folgendem Beitrag: <a href="{% url 'core:blog_post' 'asset-allocation-risk' %}">Asset Allocation – Wie viel Risiko?</a></p>
             
             <form method="post" class="mt-4">
                 {% csrf_token %}
@@ -59,34 +59,18 @@
                     <h2 class="h4 mb-3">2. Risikotragfähigkeit</h2>
                     
                     <div class="mb-3">
-                        <label class="form-label">Wie wichtig ist es Ihnen, Ihr Vermögen zu erhalten?</label>
+                        <label class="form-label">Wie bist du zusätzlich abgesichert (Versicherungen, Firmenrente, Notgroschen, etc.)?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_high" value="high" required>
-                            <label class="form-check-label" for="preservation_high">Sehr wichtig</label>
+                            <input class="form-check-input" type="radio" name="additional_benefits" id="additional_high" value="high" required>
+                            <label class="form-check-label" for="additional_high">Sehr gut</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_medium" value="medium">
-                            <label class="form-check-label" for="preservation_medium">Mittel</label>
+                            <input class="form-check-input" type="radio" name="additional_benefits" id="additional_medium" value="medium">
+                            <label class="form-check-label" for="additional_medium">Gut</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="preservation_importance" id="preservation_low" value="low">
-                            <label class="form-check-label" for="preservation_low">Weniger wichtig</label>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Wie hoch ist Ihr Einkommen im Verhältnis zu Ihren Ausgaben?</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="income_ratio" id="income_high" value="high" required>
-                            <label class="form-check-label" for="income_high">Einkommen deutlich höher als Ausgaben</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="income_ratio" id="income_medium" value="medium">
-                            <label class="form-check-label" for="income_medium">Einkommen und Ausgaben ausgeglichen</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="income_ratio" id="income_low" value="low">
-                            <label class="form-check-label" for="income_low">Ausgaben höher als Einkommen</label>
+                            <input class="form-check-input" type="radio" name="additional_benefits" id="additional_low" value="low">
+                            <label class="form-check-label" for="additional_low">Überhaupt nicht</label>
                         </div>
                     </div>
                 </div>
