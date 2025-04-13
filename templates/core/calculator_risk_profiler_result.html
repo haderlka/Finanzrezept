@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="text-center">
-                                <h4>Risikofähigkeit</h4>
+                                <h4>Risikotragfähigkeit</h4>
                                 <div class="progress" style="height: 20px;">
                                     <div class="progress-bar {% if risk_ability == 'high' %}bg-danger{% elif risk_ability == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
                                          role="progressbar" 
@@ -53,7 +53,7 @@
 
                     <div class="alert alert-info">
                         <h4 class="alert-heading">Erforderliche Rendite</h4>
-                        <p>Basierend auf Ihren Zielen und Sparplänen benötigen Sie eine jährliche Rendite von <strong>{{ required_return }}%</strong>.</p>
+                        <p><strong>Risikobedarf:</strong> Basierend auf Ihren Zielen und Sparplänen benötigen Sie eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>.</p>
                     </div>
 
                     <div class="card mb-4">

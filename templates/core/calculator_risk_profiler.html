@@ -20,7 +20,7 @@
                     <div class="mb-3">
                         <label for="goal_amount" class="form-label">Wie hoch ist Ihr angestrebtes Vermögen am Ende der Anlageperiode?</label>
                         <div class="input-group">
-                            <input type="number" class="form-control" id="goal_amount" name="goal_amount" required>
+                            <input type="number" class="form-control" id="goal_amount" name="goal_amount" value="1000000" required>
                             <span class="input-group-text">€</span>
                         </div>
                     </div>
@@ -28,28 +28,35 @@
                     <div class="mb-3">
                         <label for="current_amount" class="form-label">Wie hoch ist Ihr aktuelles Vermögen?</label>
                         <div class="input-group">
-                            <input type="number" class="form-control" id="current_amount" name="current_amount" required>
+                            <input type="number" class="form-control" id="current_amount" name="current_amount" value="50000" required>
                             <span class="input-group-text">€</span>
                         </div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="time_horizon" class="form-label">Wie lange ist Ihr Anlagehorizont in Jahren?</label>
-                        <input type="number" class="form-control" id="time_horizon" name="time_horizon" required>
+                        <input type="number" class="form-control" id="time_horizon" name="time_horizon" value="30" required>
                     </div>
                     
                     <div class="mb-3">
                         <label for="monthly_savings" class="form-label">Wie viel können Sie monatlich sparen?</label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" id="monthly_savings" name="monthly_savings" required>
-                            <span class="input-group-text">€</span>
-                        </div>
+                        <input type="number" class="form-control" id="monthly_savings" name="monthly_savings" min="0" step="0.01" value="750" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="expected_stock_return" class="form-label">Durchschnittliche jährliche Rendite von Aktien nach Abzug der Inflation</label>
+                        <input type="number" class="form-control" id="expected_stock_return" name="expected_stock_return" min="0" max="100" step="0.1" value="5" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="expected_safe_return" class="form-label">Durchschnittliche jährliche Rendite von sicheren Anlagen nach Abzug der Inflation</label>
+                        <input type="number" class="form-control" id="expected_safe_return" name="expected_safe_return" min="0" max="100" step="0.1" value="0" required>
                     </div>
                 </div>
                 
                 <!-- Step 2: Risk-Taking Ability -->
                 <div class="mb-4">
-                    <h2 class="h4 mb-3">2. Risikofähigkeit</h2>
+                    <h2 class="h4 mb-3">2. Risikotragfähigkeit</h2>
                     
                     <div class="mb-3">
                         <label class="form-label">Wie wichtig ist es Ihnen, Ihr Vermögen zu erhalten?</label>

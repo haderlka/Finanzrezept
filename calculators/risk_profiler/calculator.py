@@ -1,26 +1,69 @@
-def calculate_required_return(goal_amount, current_amount, time_horizon, monthly_savings):
+def calculate_required_return(target_value, current_value, time_horizon_years, monthly_savings, equity_return, bonds_return):
     """
-    Calculate the required annual return to reach the goal amount.
-    """
-    total_savings = monthly_savings * 12 * time_horizon
-    future_value = goal_amount
-    present_value = current_amount
-    n = time_horizon
-    pmt = monthly_savings * 12
-    
-    # Use the RATE function to calculate required return
-    required_return = ((future_value - present_value) / (present_value + pmt * n)) * 100
-    return round(required_return, 2)
+    Calculate the risk need of an investor.
 
-def determine_risk_need(required_return):
+    Uses EXPECTED_REAL_RATE_OF_RETURN for risky assets and EXPECTED_REAL_RATE_OF_BONDS_RETURN for bonds / safe assets.
+    The risk need is calculated as the percentage of the money allocated to equity.
+    
+    Args:
+        current_value (str): The current value of the investor's portfolio
+        time_horizon_years (str): The time horizon of the investor's investment
+        monthly_savings (str): The monthly savings of the investor -> Can also be negative
+        target_value (str): The target value of the investor's portfolio
+        
+    Returns:
+        float: The percentage of the portfolio that should be allocated to equity
+    """
+    # Convert annual rates to monthly rates
+    equity_monthly_rate = (1 + equity_return/100) ** (1/12) - 1
+    bond_monthly_rate = (1 + bonds_return/100) ** (1/12) - 1
+    
+    # Calculate total number of months
+    total_months = time_horizon_years * 12
+    
+    # Calculate future value of current portfolio with 100% equity
+    equity_fv = current_value * (1 + equity_monthly_rate) ** total_months
+    
+    # Calculate future value of current portfolio with 100% bonds
+    bond_fv = current_value * (1 + bond_monthly_rate) ** total_months
+    
+    # Calculate future value of monthly contributions with 100% equity
+    equity_contributions_fv = 0
+    for month in range(int(total_months)):
+        equity_contributions_fv += monthly_savings * (1 + equity_monthly_rate) ** (total_months - month)
+    
+    # Calculate future value of monthly contributions with 100% bonds
+    bond_contributions_fv = 0
+    for month in range(int(total_months)):
+        bond_contributions_fv += monthly_savings * (1 + bond_monthly_rate) ** (total_months - month)
+    
+    # Calculate total future values
+    total_equity_fv = equity_fv + equity_contributions_fv
+    total_bond_fv = bond_fv + bond_contributions_fv
+    
+    # If target value is less than or equal to bond future value, no equity needed
+    if target_value <= total_bond_fv:
+        return 0.0
+    
+    # If target value is greater than or equal to equity future value, 100% equity needed
+    if target_value >= total_equity_fv:
+        return 100.0
+    
+    # Calculate required equity allocation using linear interpolation
+    equity_allocation = ((target_value - total_bond_fv) / (total_equity_fv - total_bond_fv)) * 100
+
+    return round(equity_allocation, 2)
+
+def determine_risk_need(required_alloc):
     """
     Determine risk need based on required return.
     """
-    if required_return > 8:
+    if required_alloc < 30:
+        return 'low'
+    elif required_alloc <= 70:
+        return 'moderate' 
+    else:
         return 'high'
-    elif required_return > 4:
-        return 'moderate'
-    return 'low'
 
 def determine_risk_ability(preservation_importance, income_ratio):
     """
@@ -80,10 +123,12 @@ def calculate_risk_profile(form_data):
     current_amount = float(form_data.get('current_amount', 0))
     time_horizon = float(form_data.get('time_horizon', 0))
     monthly_savings = float(form_data.get('monthly_savings', 0))
+    equity_return = float(form_data.get('expected_stock_return', 0))
+    bonds_return = float(form_data.get('expected_safe_return', 0))
     
     # Calculate required return and risk need
-    required_return = calculate_required_return(goal_amount, current_amount, time_horizon, monthly_savings)
-    risk_need = determine_risk_need(required_return)
+    required_equity_rate = calculate_required_return(goal_amount, current_amount, time_horizon, monthly_savings, equity_return, bonds_return)
+    risk_need = determine_risk_need(required_equity_rate)
     
     # Determine risk ability
     preservation_importance = form_data.get('preservation_importance')
@@ -102,7 +147,7 @@ def calculate_risk_profile(form_data):
     portfolio = determine_portfolio_allocation(risk_need, risk_ability, behavioral_tolerance)
     
     return {
-        'required_return': required_return,
+        'required_equity_rate': required_equity_rate,
         'risk_need': risk_need,
         'risk_ability': risk_ability,
         'behavioral_tolerance': behavioral_tolerance,
