@@ -43,4 +43,11 @@ Mit dem folgenden Rechner kannst du herausfinden, wie viel Investmentrisiko zu d
 
 > Achtung: Der Rechner ersetzt keine tiefgehende Analyse
 
-[Risikoprofil-Rechner](/rechner/risikoprofil/)
+<a href="/rechner/risikoprofil/" class="btn btn-primary">
+    <i class="bi bi-shield-check"></i> Risikoprofil-Rechner
+</a>
+
+## Quellen
+1. Grable, Lytton (2003): The Development of a Risk Assessment Instrument: A Follow-Up Study
+1. [CFA Institute (2020): INVESTMENT RISK PROFILING
+A GUIDE FOR FINANCIAL ADVISORS](https://rpc.cfainstitute.org/research/reports/investment-risk-profiling)
