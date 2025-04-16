@@ -1,5 +1,5 @@
 ---
-title: Asset Allocation
+title: Wie viel Risiko ins Portfolio?
 date: 2025-04-12
 description: Wie viel Risiko ins Portfolio?
 author: Lukas
@@ -14,14 +14,12 @@ Keine Rendite ohne Risiko – doch wie viel Risiko ist für dich angemessen? Die
 
 Die ideale Vermögensaufteilung hängt von mehreren Faktoren ab. Das wichtigste Kriterium ist dein Anlageziel. Spontan fallen mir als Anlageziele ein: Altersvorsorge, Immobiliefinanzierung und Studienkonto für die Kinder. Die Kriterien sind aber allgemein gültig und lassen sich auf beliebige finanzielle Ziele anwenden. Wenn du dir Klarheit über dein Anlageziel verschafft hast, solltes du folgende Aspekte berücksichtigen:
 
-### 1. Deine Risikobereitschaft
-Deine persönliche Risikobereitschaft bestimmt, wie viel Schwankung du emotional aushalten kannst, ohne unüberlegte Entscheidungen zu treffen. Wichtig ist, dass du über deinen gesamten Anlagehorizont hinweg ruhig schlafen kannst.
+### 1. Deine Risikonotwendigkeit
+- Welche Rendite benötigst du, um deine finanziellen Ziele zu erreichen?
+- Wie viel Volatilität musst du akzeptieren, um diese Rendite zu erzielen?
+- Passt dein Renditebedarf zum aktuellen Marktumfeld?
 
-**Faktoren, die deine Risikobereitschaft beeinflussen:**
-
-- **Erfahrung & Wissen:** Finanzbildung und praktische Erfahrung (*Skin in the Game*) helfen dir, Risiken besser einzuschätzen.
-- **Persönliche Prägung:** Familie, Umfeld und frühere Erlebnisse beeinflussen dein Verhältnis zu Risiken oft unbewusst.  
-  *Tipp: Psychometrische Tests können helfen, deine Risikobereitschaft objektiver zu erfassen.*
+Ein zu defensives Portfolio kann dazu führen, dass du deine finanziellen Ziele nicht erreichst, während ein zu risikoreiches Portfolio deine Nerven (und dein Kapital) überstrapazieren kann.
 
 ### 2. Deine Risikotragfähigkeit
 Neben der psychologischen Bereitschaft ist auch deine finanzielle Kapazität, Risiken zu tragen, entscheidend. Dazu gehören:
@@ -32,14 +30,17 @@ Neben der psychologischen Bereitschaft ist auch deine finanzielle Kapazität, Ri
 
 > Aktien und andere volatile Anlageklassen erzielen langfristig oft die besten Renditen, aber wenn du dein Geld in wenigen Monaten brauchst (z. B. für ein Auto oder eine Anzahlung), ist eine risikoreiche Anlage ungeeignet.
 
-### 3. Deine Risikonotwendigkeit
-- Welche Rendite benötigst du, um deine finanziellen Ziele zu erreichen?
-- Wie viel Volatilität musst du akzeptieren, um diese Rendite zu erzielen?
-- Passt dein Renditebedarf zum aktuellen Marktumfeld?
+### 3. Deine Risikobereitschaft
+Deine persönliche Risikobereitschaft bestimmt, wie viel Schwankung du emotional aushalten kannst, ohne unüberlegte Entscheidungen zu treffen. Wichtig ist, dass du über deinen gesamten Anlagehorizont hinweg ruhig schlafen kannst.
 
-Ein zu defensives Portfolio kann dazu führen, dass du deine finanziellen Ziele nicht erreichst, während ein zu risikoreiches Portfolio deine Nerven (und dein Kapital) überstrapazieren kann.
+**Faktoren, die deine Risikobereitschaft beeinflussen:**
+
+- **Erfahrung & Wissen:** Finanzbildung und praktische Erfahrung (*Skin in the Game*) helfen dir, Risiken besser einzuschätzen.
+- **Persönliche Prägung:** Familie, Umfeld und frühere Erlebnisse beeinflussen dein Verhältnis zu Risiken oft unbewusst.  
 
 ### 4. Dein persönlicher Risiko-Check
-Mit dem folgenden Rechner kannst du herausfinden, wie viel Investmentrisiko zu dir passt. Er berücksichtigt deine Ziele, deinen Zeithorizont und deine persönliche Risikoeinschätzung – und liefert dir einen ersten Richtwert für deine individuelle Asset Allocation.
+Mit dem folgenden Rechner kannst du herausfinden, wie viel Investmentrisiko zu dir passt. Er berücksichtigt deine Ziele, deinen Zeithorizont und deine persönliche Risikoeinschätzung und liefert dir einen ersten Richtwert für deine individuelle Asset Allocation.
 
 > Achtung: Der Rechner ersetzt keine tiefgehende Analyse
+
+[Risikoprofil-Rechner](/rechner/risikoprofil/)
