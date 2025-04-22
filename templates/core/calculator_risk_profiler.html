@@ -8,7 +8,7 @@
     
     <div class="card">
         <div class="card-body">
-            <p class="lead">Dieser Rechner gibt dir eine Empfehlung für deine persönliche Aktienquote. Hintergründe zur Berechnung findest du in folgendem Beitrag: <a href="{% url 'core:blog_post' 'asset-allocation-risk' %}">Asset Allocation – Wie viel Risiko?</a></p>
+            <p class="lead">Dieser Rechner gibt dir eine Empfehlung für deine persönliche Aktienquote. Hintergründe zur Berechnung findest du in folgendem Beitrag: <a href="{% url 'core:blog_post' 'Investment-Risikoprofil' %}">Dein Investment-Risikoprofil</a></p>
             
             <form method="post" class="mt-4">
                 {% csrf_token %}
@@ -40,7 +40,7 @@
                     
                     <div class="mb-3">
                         <label for="monthly_savings" class="form-label">Wie viel können Sie monatlich sparen?</label>
-                        <input type="number" class="form-control" id="monthly_savings" name="monthly_savings" min="0" step="0.01" value="750" required>
+                        <input type="number" class="form-control" id="monthly_savings" name="monthly_savings" step="0.01" value="750" required>
                     </div>
 
                     <div class="mb-3">
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Du hast gerade für einen "Einmal-im-Leben-Urlaub" gespart. Drei Wochen vor deiner geplanten Abreise verlierst du deinen Job. Du würdest:</label>
+                        <label class="form-label">Du hast gerade für einen einmaligen Urlaub gespart. Drei Wochen vor deiner geplanten Abreise verlierst du deinen Job. Du würdest:</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="behavioral_question3" id="behavioral_question3_a" value="1" required>
                             <label class="form-check-label" for="behavioral_question3_a">Den Urlaub absagen</label>
@@ -256,7 +256,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Angenommen, ein Verwandter hinterlässt dir ein Erbe von 100.000€ und bestimmt im Testament, dass du das GESAMTE Geld in EINE der folgenden Optionen investieren musst. Welche würdest du wählen?</label>
+                        <label class="form-label">Angenommen, ein Verwandter hinterlässt dir ein Erbe von 100.000€ und bestimmt im Testament, dass du das gesamte Geld in eine der folgenden Optionen investieren musst. Welche würdest du wählen?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="behavioral_question11" id="behavioral_question11_a" value="1" required>
                             <label class="form-check-label" for="behavioral_question11_a">Ein Sparkonto oder Geldmarktfonds</label>
@@ -292,7 +292,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Dein vertrauenswürdiger Freund und Nachbar, ein erfahrener Geologe, stellt eine Gruppe von Investoren zusammen, um ein Goldminenprojekt zu finanzieren. Das Projekt könnte 50- bis 100-fach zurückzahlen, wenn es erfolgreich ist. Wenn die Mine ein Reinfall ist, ist die gesamte Investition wertlos. Dein Freund schätzt die Erfolgschance auf nur 20%. Wenn du das Geld hättest, wie viel würdest du investieren?</label>
+                        <label class="form-label">Dein vertrauenswürdiger Freund und Nachbar, ein erfahrener Geologe, stellt eine Gruppe von Investoren zusammen, um ein Goldminenprojekt zu finanzieren. Das Projekt könnte 50- bis 100-fach zurückzahlen, wenn es erfolgreich ist. Wenn die Mine ein Reinfall ist, ist die gesamte Investition wertlos. Dein Freund schätzt die Erfolgschance auf 20%. Wenn du das Geld hättest, wie viel würdest du investieren?</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="behavioral_question13" id="behavioral_question13_a" value="1" required>
                             <label class="form-check-label" for="behavioral_question13_a">Nichts</label>

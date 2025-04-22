@@ -18,9 +18,9 @@ Hauptmotivation für diese Seite ist meine Recherchen besser zu strukturieren. D
 > Wichtig: Ich bin kein Finanzberater und gebe keine Anlageempfehlungen. Die Inhalte auf dieser Seite dienen ausschließlich zu Informations- und Bildungszwecken. Ich übernehme keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Informationen.
 
 ## Was dich hier erwartet
-Ich bin überzeugt, dass breit gestreute Aktien-ETFs eine der sinnvollsten Möglichkeiten sind, um langfristig in den Aktienmarkt zu investieren. Warum das so ist, werde ich in einem eigenen Beitrag anhand wissenschaftlicher Studien und Daten näher erläutern.
+Ich bin überzeugt, dass breit gestreute Aktien-ETFs die sinnvollsten Möglichkeiten sind, um langfristig in den Aktienmarkt zu investieren. Warum das so ist, werde ich in einem eigenen Beitrag anhand wissenschaftlicher Studien und Daten näher erläutern.
 
-„Nicht noch einer, der ETFs predigt…“ – ich probiere es zu vermeiden. Genau deshalb konzentriere ich mich hier auf Themen, bei denen ich selbst kaum gute deutschsprachige Inhalte gefunden habe. Hoffentlich kann ich diese auch mit interaktiver Rechner ergänzen und damit einen Mehrwert schaffen. 
+„Nicht noch einer, der über langweilige ETFs predigt…“ – ich probiere es zu vermeiden. Genau deshalb konzentriere ich mich hier auf Themen, bei denen ich selbst kaum gute deutschsprachige Inhalte gefunden habe. Hoffentlich kann ich diese auch mit interaktiver Rechner ergänzen und damit einen Mehrwert schaffen. 
 
 ## Und warum heißt die Seite Finanzrezept?
-Zum einen hatte ich einfach keinen besseren Namen parat und zum anderen ist genau das mein Ansatz: Finanzen so klar und nachvollziehbar erklären, wie ein gutes Kochrezept – Schritt für Schritt, mit den passenden Zutaten.
+Zum einen hatte ich einfach keinen besseren Namen parat und zum anderen ist genau das mein Ansatz: Finanzen so klar und nachvollziehbar erklären, wie ein gutes Kochrezept – Schritt für Schritt und mit den passenden Zutaten.
