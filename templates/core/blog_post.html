@@ -33,10 +33,14 @@
         </div>
     </article>
 
-    <div class="mt-5">
+    <div class="mt-5 d-flex justify-content-between">
         <a href="{% url 'core:blog_list' %}" class="btn btn-outline-primary">
             <i class="bi bi-arrow-left"></i>
             Zurück zur Übersicht
+        </a>
+        <a href="mailto:deinfinanzrezept@gmail.com?subject=Feedback zu: {{ post.title }}" class="btn btn-primary">
+            <i class="bi bi-envelope"></i>
+            Feedback zum Beitrag
         </a>
     </div>
 </div>
