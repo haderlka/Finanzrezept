@@ -110,6 +110,11 @@
                             <i class="bi bi-calculator"></i> Rechner
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:about' %}">
+                            <i class="bi bi-person"></i> Über mich
+                        </a>
+                    </li>
                 </ul>
                 <form class="d-flex" action="{% url 'core:search' %}" method="get">
                     <div class="input-group">

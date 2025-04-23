@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Über mich - Finanzrezept{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <article class="blog-post">
+        <header class="mb-4">
+            <h1 class="display-4">Über mich</h1>
+        </header>
+        
+        <div class="blog-content">
+            <h2>Wer schreibt hier eigentlich und warum?</h2>
+            
+            <p>Erstmal freut es mich sehr, dass du den Weg zu meiner Seite gefunden hast!</p>
+            
+            <p>Ich bin Lukas, hauptberuflich Softwareingenieur, allerdings nicht im Bereich Webentwicklung. Falls euch also mal ein kleiner Bug auf der Seite begegnet, wisst ihr Bescheid 😉. Meine Freizeit verbringe ich mit Sport und natürlich Finanzthemen.</p>
+            
+            <p>Seit 2017 beschäftige ich mich intensiv mit den Themen Geldanlage und Vermögensaufbau. 
+            Hauptmotivation für diese Seite ist meine Recherchen besser zu strukturieren. Dabei hoffe ich natürlich, dass die Inhalte und Rechner auch dir einen Mehrwert bieten.</p>
+            
+            <blockquote data-type="warning">
+                <strong>Wichtig:</strong> Ich bin kein Finanzberater und gebe keine Anlageempfehlungen. Die Inhalte auf dieser Seite dienen ausschließlich zu Informations- und Bildungszwecken. Ich übernehme keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Informationen.
+            </blockquote>
+            
+            <h2>Was dich hier erwartet</h2>
+            
+            <p>Ich bin überzeugt, dass breit gestreute Aktien-ETFs die sinnvollsten Möglichkeiten sind, um langfristig in den Aktienmarkt zu investieren. Warum das so ist, werde ich in einem eigenen Beitrag anhand wissenschaftlicher Studien und Daten näher erläutern.</p>
+            
+            <p>„Nicht noch einer, der über langweilige ETFs predigt…" – ich probiere es zu vermeiden. Genau deshalb konzentriere ich mich hier auf Themen, bei denen ich selbst kaum gute deutschsprachige Inhalte gefunden habe. Hoffentlich kann ich diese auch mit interaktiver Rechner ergänzen und damit einen Mehrwert schaffen.</p>
+            
+            <h2>Und warum heißt die Seite Finanzrezept?</h2>
+            
+            <p>Zum einen hatte ich einfach keinen besseren Namen parat und zum anderen ist genau das mein Ansatz: Finanzen so klar und nachvollziehbar erklären, wie ein gutes Kochrezept – Schritt für Schritt und mit den passenden Zutaten.</p>
+        </div>
+    </article>
+
+    <div class="mt-5">
+        <a href="{% url 'core:home' %}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i>
+            Zurück zur Startseite
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .blog-content {
+        max-width: 800px;
+        line-height: 1.8;
+    }
+    
+    .blog-content h1,
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4,
+    .blog-content h5,
+    .blog-content h6 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-content p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .blog-content ul,
+    .blog-content ol {
+        margin-bottom: 1.5rem;
+    }
+</style>
+{% endblock %} 

@@ -15,6 +15,7 @@ urlpatterns = [
     path('rechner/risikoprofil/', views.risk_profiler, name='risk_profiler'),
     path('statistiken/', views.statistics, name='statistics'),
     path('datenschutz/', views.datenschutz, name='datenschutz'),
+    path('about/', views.about, name='about'),
     path('robots.txt', views.robots_txt, name='robots_txt'),
     path('suche/', views.search, name='search'),
-] + static('/blog/images/', document_root='content/blog/images') 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static('/blog/images/', document_root='content/blog/images') 

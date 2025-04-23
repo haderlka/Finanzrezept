@@ -149,6 +149,10 @@ def datenschutz(request):
     """View for the privacy policy page."""
     return render(request, 'core/datenschutz.html')
 
+def about(request):
+    """View for the About page."""
+    return render(request, 'core/about.html')
+
 def robots_txt(request):
     template = loader.get_template('robots.txt')
     return HttpResponse(template.render(request=request), content_type='text/plain')
