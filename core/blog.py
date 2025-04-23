@@ -30,7 +30,8 @@ def get_blog_posts(tags=None):
             # Convert markdown content to HTML
             html_content = markdown.markdown(
                 post.content,
-                extensions=['extra', 'codehilite']
+                extensions=['extra', 'codehilite', 'attr_list'],
+                output_format='html5'
             )
             
             # Create slug from filename (remove date and extension)
@@ -74,7 +75,8 @@ def get_post_by_slug(slug):
             post = frontmatter.load(file)
             html_content = markdown.markdown(
                 post.content,
-                extensions=['extra', 'codehilite']
+                extensions=['extra', 'codehilite', 'attr_list'],
+                output_format='html5'
             )
             
             return BlogPost(

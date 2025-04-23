@@ -30,7 +30,9 @@ und risikofreien Anlagen wie
 - Staatsanleihen mit guter Bonität
 - ...
 
-![Kuchendiagramm Aktien vs Tagesgeld](/media/2025-04-12-Aktien-vs-Tagesgeld.png)
+<div style="text-align: center;">
+<img src="/blog/images/2025-04-12-Aktien-vs-Tagesgeld.png" alt="Kuchendiagramm Aktien vs Tagesgeld" style="max-width: 100%; height: auto;">
+</div>
 
 Falls dich die Theorie dazu nicht interessiert kannst du auch direkt zum [Rechner](/rechner/risikoprofil/) springen.
 
