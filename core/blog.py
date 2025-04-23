@@ -16,6 +16,29 @@ class BlogPost:
         self.slug = slug
         self.tags = tags
 
+def process_mermaid_blocks(content):
+    """Process Mermaid code blocks and convert them to HTML."""
+    lines = content.split('\n')
+    result = []
+    in_mermaid = False
+    mermaid_content = []
+    
+    for line in lines:
+        if line.startswith('```mermaid'):
+            in_mermaid = True
+            mermaid_content = []
+        elif line.startswith('```') and in_mermaid:
+            in_mermaid = False
+            # Create Mermaid diagram HTML
+            diagram_html = f'<div class="mermaid">{"".join(mermaid_content)}</div>'
+            result.append(diagram_html)
+        elif in_mermaid:
+            mermaid_content.append(line + '\n')
+        else:
+            result.append(line)
+    
+    return '\n'.join(result)
+
 def get_blog_posts(tags=None):
     """Get all blog posts sorted by date, optionally filtered by tags."""
     posts = []
@@ -28,9 +51,12 @@ def get_blog_posts(tags=None):
         try:
             post = frontmatter.load(file)
             
+            # Process Mermaid blocks first
+            content = process_mermaid_blocks(post.content)
+            
             # Convert markdown content to HTML
             html_content = markdown.markdown(
-                post.content,
+                content,
                 extensions=[
                     'extra',
                     'codehilite',
@@ -79,8 +105,12 @@ def get_post_by_slug(slug):
     for file in blog_dir.glob(f'*-{slug}.md'):
         try:
             post = frontmatter.load(file)
+            
+            # Process Mermaid blocks first
+            content = process_mermaid_blocks(post.content)
+            
             html_content = markdown.markdown(
-                post.content,
+                content,
                 extensions=[
                     'extra',
                     'codehilite',

@@ -23,3 +23,9 @@ And a more complex one:
 $$
 \frac{d}{dx}(x^n) = nx^{n-1}
 $$
+
+```mermaid
+pie title Asset Allocation
+    "Aktien" : 70
+    "Anleihen" : 30
+```

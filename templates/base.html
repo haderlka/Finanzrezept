@@ -178,6 +178,20 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose',
+                fontFamily: 'inherit'
+            });
+            // Force Mermaid to re-render all diagrams
+            //mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html> 
