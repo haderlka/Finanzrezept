@@ -4,6 +4,7 @@ from pathlib import Path
 import frontmatter
 import markdown
 from collections import defaultdict
+from mdx_math import MathExtension
 
 class BlogPost:
     def __init__(self, title, content, date, description, author, slug, tags):
@@ -30,7 +31,12 @@ def get_blog_posts(tags=None):
             # Convert markdown content to HTML
             html_content = markdown.markdown(
                 post.content,
-                extensions=['extra', 'codehilite', 'attr_list'],
+                extensions=[
+                    'extra',
+                    'codehilite',
+                    'attr_list',
+                    MathExtension(enable_dollar_delimiter=True, add_preview=True)
+                ],
                 output_format='html5'
             )
             
@@ -75,7 +81,12 @@ def get_post_by_slug(slug):
             post = frontmatter.load(file)
             html_content = markdown.markdown(
                 post.content,
-                extensions=['extra', 'codehilite', 'attr_list'],
+                extensions=[
+                    'extra',
+                    'codehilite',
+                    'attr_list',
+                    MathExtension(enable_dollar_delimiter=True, add_preview=True)
+                ],
                 output_format='html5'
             )
             

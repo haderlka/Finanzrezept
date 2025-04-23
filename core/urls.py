@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'core'
 
@@ -15,4 +17,4 @@ urlpatterns = [
     path('datenschutz/', views.datenschutz, name='datenschutz'),
     path('robots.txt', views.robots_txt, name='robots_txt'),
     path('suche/', views.search, name='search'),
-] 
+] + static('/blog/images/', document_root='content/blog/images') 
