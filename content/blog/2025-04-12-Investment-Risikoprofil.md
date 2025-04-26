@@ -102,6 +102,8 @@ Mit dem folgenden Rechner kannst du herausfinden, wie viel Investmentrisiko zu d
     <i class="bi bi-shield-check"></i> Risikoprofil-Rechner
 </a>
 
+Du hast vielleicht oft gehört, dass man den risikobehafteten Anteil mit steigendem Alter reduzieren sollte und fragst dich jetzt warum der Rechner dich nicht nach deinem Alter fragt. Tatsächlich ist aber nicht dein Alter sondern dein Zeithorizont relevant, natürlich sinkt dieser auch mit steigendem Alter.
+
 ## Quellen
 1. Grable, Lytton (2003): The Development of a Risk Assessment Instrument: A Follow-Up Study
 1. [CFA Institute (2020): INVESTMENT RISK PROFILING
