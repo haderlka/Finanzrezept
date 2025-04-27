@@ -17,9 +17,9 @@
                             <div class="text-center">
                                 <h4>Risikobedarf</h4>
                                 <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar {% if risk_need == 'high' %}bg-danger{% elif risk_need == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
+                                    <div class="progress-bar {% if risk_need == 'high' or risk_need == 'too high' %}bg-danger{% elif risk_need == 'moderate' %}bg-warning{% else %}bg-success{% endif %}" 
                                          role="progressbar" 
-                                         style="width: {% if risk_need == 'high' %}100%{% elif risk_need == 'moderate' %}50%{% else %}25%{% endif %};">
+                                         style="width: {% if risk_need == 'high' or risk_need == 'too high'%}100%{% elif risk_need == 'moderate' %}50%{% else %}25%{% endif %};">
                                         {{ risk_need|title }}
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
 
                     <div class="alert alert-info">
                         <h4 class="alert-heading">Details</h4>
-                        <p><strong>Risikobedarf:</strong> Rein rechnerisch benötigst du eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>.</p>
+                        <p><strong>Risikobedarf:</strong> Rein rechnerisch benötigst du eine Aktienquote von <strong>{{ required_equity_rate }}%</strong>. {% if risk_need == 'too high' %} Dein Ziel ist also mit der aktuellen Sparquote leider nicht zu erreichen.{% endif %}</p>
                         <p><strong>Risikotragfähigkeit:</strong> {{ risk_ability_text }}</p>
                         <p><strong>Risikotoleranz:</strong> {{ behavioral_tolerance_text }}</p>
                     </div>
@@ -71,7 +71,7 @@
                                             Aktien
                                         </div>
                                         <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ 100|sub:equity_percentage }}%;">
-                                            Anleihen
+                                            Sichere Anlagen
                                         </div>
                                     </div>
                                 </div>

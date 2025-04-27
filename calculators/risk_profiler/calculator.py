@@ -46,8 +46,8 @@ def calculate_required_return(target_value, current_value, time_horizon_years, m
         return 0.0
     
     # If target value is greater than or equal to equity future value, 100% equity needed
-    if target_value >= total_equity_fv:
-        return 100.0
+    # if target_value >= total_equity_fv:
+    #     return 100.0
     
     # Calculate required equity allocation using linear interpolation
     equity_allocation = ((target_value - total_bond_fv) / (total_equity_fv - total_bond_fv)) * 100
@@ -62,8 +62,10 @@ def determine_risk_need(required_alloc):
         return 'low'
     elif required_alloc <= 70:
         return 'moderate' 
-    else:
+    elif required_alloc <= 100:
         return 'high'
+    else:
+        return 'too high'
 
 def determine_risk_ability(additional_benefits, monthly_savings, time_horizon):
     """
@@ -121,9 +123,6 @@ def determine_behavioral_tolerance(answers):
     # Question 6: Risk word association
     total_score += int(answers.get('behavioral_question6', 0))
     
-    # Question 7: Bond vs hard assets
-    total_score += int(answers.get('behavioral_question7', 0))
-    
     # Question 8: Investment choice with best/worst case
     total_score += int(answers.get('behavioral_question8', 0))
     
@@ -143,13 +142,13 @@ def determine_behavioral_tolerance(answers):
     total_score += int(answers.get('behavioral_question13', 0))
     
     # Determine risk level based on total score
-    if total_score >= 33:
+    if total_score >= 29:
         result = 'high'
         behavioral_tolerance_text = "Du gehst gerne Risiken ein"
-    elif total_score >= 23:
+    elif total_score >= 19:
         result = 'moderate'
         behavioral_tolerance_text = "Du kannst Risiken eingehen, wenn es dir sinnvoll erscheint."
-    elif total_score >= 19:
+    elif total_score >= 15:
         result = 'low'
         behavioral_tolerance_text = "Du gehst nicht gerne Risiken ein"
     else:
@@ -161,24 +160,145 @@ def determine_portfolio_allocation(risk_need, risk_ability, behavioral_tolerance
     """
     Determine the recommended portfolio allocation based on risk factors.
     """
-    if risk_need == 'high' and risk_ability == 'high' and behavioral_tolerance == 'high':
+    if risk_ability == 'low':
         return {
-            'allocation': 'high',
-            'equity_percentage': 70,
-            'explanation': "Ihr Profil zeigt eine hohe Risikobereitschaft und -fähigkeit. Eine hohe Aktienquote ist angemessen."
+            'allocation': 'Niedrig',
+            'equity_percentage': 0,
+            'explanation': "Du hast nicht die Risikotragfähigkeit um in Aktien zu investieren."
         }
-    elif risk_need == 'moderate' and risk_ability == 'moderate' and behavioral_tolerance == 'moderate':
+    elif risk_ability == 'moderate' and risk_need == 'low':
         return {
-            'allocation': 'moderate',
+            'allocation': 'Niedrig',
+            'equity_percentage': 0,
+            'explanation': "Du hast nicht die Notwendigkeit in Aktien zu investieren."
+        }  
+    elif risk_ability == 'moderate' and risk_need == 'moderate' and behavioral_tolerance == 'very_low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 0,
+            'explanation': "Du hast nicht die Risikotoleranz um in Aktien zu investieren."
+        }  
+    elif risk_ability == 'moderate' and risk_need == 'moderate' and behavioral_tolerance == 'low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 10,
+            'explanation': "Du kannst ein bisschen in Aktien investieren auch um deine Risikotoleranz zu verbessern."
+        }  
+    elif risk_ability == 'moderate' and risk_need == 'moderate' and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 20,
+            'explanation': ""
+        } 
+    elif risk_ability == 'moderate' and risk_need == 'moderate' and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 30,
+            'explanation': ""
+        } 
+    elif risk_ability == 'moderate' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'very_low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 10,
+            'explanation': "Du kannst ein bisschen in Aktien investieren auch um deine Risikotoleranz zu verbessern."
+        } 
+    elif risk_ability == 'moderate' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 20,
+            'explanation': "Du kannst ein bisschen in Aktien investieren auch um deine Risikotoleranz zu verbessern."
+        } 
+    elif risk_ability == 'moderate' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Mittel',
+            'equity_percentage': 40,
+            'explanation': ""
+        } 
+    elif risk_ability == 'moderate' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'high':
+        return {
+            'allocation': 'Mittel',
             'equity_percentage': 50,
-            'explanation': "Ihr Profil zeigt eine moderate Risikobereitschaft. Eine ausgewogene Mischung ist empfehlenswert."
+            'explanation': ""
+        } 
+    elif risk_ability == 'high' and risk_need == 'low' and behavioral_tolerance == 'very_low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 0,
+            'explanation': "Du hast nicht die Notwendigkeit dich trotz niedrieger Risikotoleranz in Aktien zu investieren."
+        } 
+    elif risk_ability == 'high' and risk_need == 'low' and behavioral_tolerance == 'low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 10,
+            'explanation': "Du kannst ein wenig Aktien in dein Portfolio aufnehmen."
+        } 
+    elif risk_ability == 'high' and risk_need == 'low' and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 20,
+            'explanation': "Du kannst ein wenig Aktien in dein Portfolio aufnehmen."
+        } 
+    elif risk_ability == 'high' and risk_need == 'low' and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 30,
+            'explanation': "Du hast nicht die Notwendigkeit eine höhere Aktienquote zu fahren."
+        } 
+    elif risk_ability == 'high' and risk_need == 'moderate' and behavioral_tolerance == 'very_low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 10,
+            'explanation': "Aufgrund deiner Risikotoleranz bleibt deine Aktienquote recht niedrig."
+        } 
+    elif risk_ability == 'high' and risk_need == 'moderate' and behavioral_tolerance == 'low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 25,
+            'explanation': "Aufgrund deiner Risikotoleranz bleibt deine Aktienquote recht niedrig."
+        } 
+    elif risk_ability == 'high' and risk_need == 'moderate' and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Mittel',
+            'equity_percentage': 50,
+            'explanation': ""
+        } 
+    elif risk_ability == 'high' and risk_need == 'moderate' and behavioral_tolerance == 'high':
+        return {
+            'allocation': 'Mittel',
+            'equity_percentage': 60,
+            'explanation': ""
+        } 
+    elif risk_ability == 'high' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'very_low':
+        return {
+            'allocation': 'Niedrig',
+            'equity_percentage': 25,
+            'explanation': "Überlege dich über Finanzen weiterzubilden um deine Risikotoleranz zu erhöhen. Du bist auf eine Aktienquote angewiesen um dein Ziel zu erreichen"
+        } 
+    elif risk_ability == 'high' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'low':
+        return {
+            'allocation': 'Mittel',
+            'equity_percentage': 50,
+            'explanation': "Überlege dich über Finanzen weiterzubilden um deine Risikotoleranz zu erhöhen. Du bist auf eine Aktienquote angewiesen um dein Ziel zu erreichen"
+        }
+    elif risk_ability == 'high' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'moderate':
+        return {
+            'allocation': 'Hoch',
+            'equity_percentage': 75,
+            'explanation': ""
+        }
+    elif risk_ability == 'high' and (risk_need == 'high' or 'too high') and behavioral_tolerance == 'high':
+        return {
+            'allocation': 'Hoch',
+            'equity_percentage': 100,
+            'explanation': "Du kannst voll ins Risiko gehen."
         }
     else:
         return {
-            'allocation': 'low',
-            'equity_percentage': 30,
-            'explanation': "Ihr Profil zeigt eine konservative Risikoneigung. Eine defensive Anlagestrategie ist ratsam."
+            'allocation': 'Fehler',
+            'equity_percentage': 0,
+            'explanation': "Fehler bei Bestimmung deiner Aktienquote"
         }
+    
 
 def calculate_risk_profile(form_data):
     """

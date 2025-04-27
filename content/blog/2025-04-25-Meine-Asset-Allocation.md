@@ -24,17 +24,17 @@ pie
 > Bitte beachte, dass jeder eine andere Risikobereitschaft, Risikotragfähigkeit und Risikonotwendigkeit hat. Deshalb kann sich die für dich geeignete Asset-Allocation stark von meiner unterscheiden. 
 
 ## Sichere Anlagen (25%)
-| Anteil | Anlageform       | Produkt                                                            | TER    |
-|--------|------------------|---------------------------------------------------------------------|--------|
-|        | Tagesgeld        | Notgroschen                                                        | 0,00%  |
-|        | Geldmarkt ETF    | Xtrackers II EUR Overnight Rate Swap (DBX0AN)                      | 0,10%  |
+| Anlageform       | Produkt                                                            | TER    |
+|------------------|---------------------------------------------------------------------|--------|
+| Tagesgeld        | Notgroschen                                                        | 0,00%  |
+| Geldmarkt ETF    | Xtrackers II EUR Overnight Rate Swap (DBX0AN)                      | 0,10%  |
 
 Als Tagesgeldkonto nutze ich die [RenaultBank](https://www.renault-bank-direkt.de/geldanlage/produktuebersicht?werberId=NDgzNDg2). Ich weiß man bekommt dort nicht zwangsläufig den besten Zinssatz, aber ich habe dort nur meinen Notgroschen und bin kein motivierter Tagesgeldhopper. 
 In den über 10 Jahren in denen ich dort Kunde bin, waren die Zinsen nie schlecht genug, dass sich für mich ein Wechsel gelohnt hätte.
 
 > Achtung: Tagesgeld bzw. Bankeinlagen allgemein sind nur innerhalb der Einlagensicherung als sichere Anlagen zu sehen. Alles darüber hinaus ist stark risikobehaftet. Hier ein [Beitrag](https://gerd-kommer.de/risiko-von-bankguthaben/) von Gerd Kommer zum unterschätzten Risiko von Bankeinlagen.
 
-Alles was den meinen Notgroschen übersteigt investiere ich in den oben genannten [Geldmarktfond](https://gerd-kommer.de/geldmarktfonds/). Die Rendite entspricht dort recht genau dem EZB-Zins. Sollten wir uns wieder einem negativen Zinsumfeld nähern, würde ich das Geld aus dem Geldmarktfond abziehen.
+Alles was meinen Notgroschen übersteigt investiere ich in den oben genannten [Geldmarktfond](https://gerd-kommer.de/geldmarktfonds/). Die Rendite entspricht dort recht genau dem EZB-Zins. Sollten wir uns wieder einem negativen Zinsumfeld nähern, würde ich das Geld aus dem Geldmarktfond abziehen.
 
 ## Risikobehaftete Anlagen (75%)
 ```mermaid
